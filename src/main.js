@@ -1,0 +1,10 @@
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
+import { revealDirective } from './directives/reveal'
+import './styles/main.scss'
+
+const app = createApp(App)
+app.directive('reveal', revealDirective)
+app.use(router)
+app.mount('#app')

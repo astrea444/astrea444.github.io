@@ -1,0 +1,66 @@
+@forward 'tokens';
+@use 'tokens';
+@use 'mixins';
+@use 'base';
+
+
+.section-title {
+    font-weight: 600;
+    font-size: calc($fs-base * 1.2);
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    margin: $s-5 0 $s-4;
+    text-align: left;
+    width: 100%;
+    margin-left: -4px;
+
+    @include respond-max(tablet) {
+        font-size: $fs-base;
+        margin-left: 0;
+    }
+}
+
+.project {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    section {
+        padding: 5rem 0 0;
+
+        @include respond-max(tablet) {
+            padding: 2rem 0 0;
+        }
+    }
+}
+
+.project-title {
+    text-align: center;
+    width: 100%;
+    padding-top: 5rem !important;
+    font-size: $fs-2xl;
+
+    @include respond-max(mobile) {
+        font-size: $fs-base;
+    }
+
+    @include respond-max(tablet) {
+        line-height: 1.25;
+    }
+}
+
+.paragraph {
+    font-weight: 400;
+    font-size: $fs-base;
+    line-height: 1.4 !important;
+    text-align: left;
+
+    @include respond-max(mobile) {
+        font-size: $fs-xs !important;
+    }
+
+    @include respond-max(tablet) {
+        font-size: $fs-sm;
+    }
+}

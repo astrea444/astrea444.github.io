@@ -1,0 +1,116 @@
+@use "@/styles/_tokens.scss" as *;
+@use 'sass:map';
+
+$breakpoints: (
+  xs: 350px,
+  mobile: 375px,
+  tablet: 768px,
+  sm: 1024px,
+  md: 1280px,
+  lg: 1440px,
+  xl: 1920px,
+  xxl: 2560px,
+  xxxl: 3840px,
+);
+
+@function breakpoint($name) {
+  @return map.get($breakpoints, $name);
+}
+
+@mixin respond($breakpoint) {
+  @media (min-width: breakpoint($breakpoint)) {
+    @content;
+  }
+}
+
+@mixin respond-max($breakpoint) {
+  $bp: breakpoint($breakpoint);
+
+  @media (max-width: calc(#{$bp} - 1px)) {
+    @content;
+  }
+}
+
+@mixin respond-between($min, $max) {
+  @media (min-width: breakpoint($min)) and (max-width: #{breakpoint($max) - 1px}) {
+    @content;
+  }
+}
+
+@mixin main-shadow($color: $c-accent) {
+  box-shadow: 0.3rem 0.3rem 0px $color, inset -0.15rem -0.15rem 0px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s $ease, transform 0.3s $ease;
+
+  &:hover {
+    box-shadow: 0.45rem 0.45rem 0px $color, inset -0.15rem -0.15rem 0px rgba(0, 0, 0, 0.2);
+    transform: translate(-2.5%, -5%);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0.45rem 0.45rem 0px $color, inset -0.15rem -0.15rem 0px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@mixin inset-shadow-soft {
+  box-shadow: inset -0.15rem -0.15rem 0px rgba(0, 0, 0, 0.2);
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid $c-ring;
+    outline-offset: 3px;
+  }
+}
+
+@mixin container {
+  max-width: $container-w;
+  margin-inline: auto;
+  padding-inline: $s-5;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+@mixin section-bar {
+  display: block;
+  width: 100%;
+  background: $c-fg;
+  color: $c-bg;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: $s-1 $s-4;
+  margin-bottom: $s-6;
+  font-size: $fs-lg;
+
+  @include respond(xs) {
+    font-size: $fs-xl;
+  }
+}
+
+@mixin reveal-in($delay: 0s) {
+  opacity: 0;
+  transform: translateY($s-5);
+  filter: blur($s-2);
+  animation: revealIn 1s $ease forwards;
+  animation-delay: $delay;
+}
+
+@keyframes revealIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
