@@ -2,26 +2,124 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/icon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wiktoria Laska</title>
+    <meta property="og:image" content="/assets/og.webp" />
+    <meta property="og:type" content="website" />
+    <title>Wiktoria Laska - UI/UX Designer & Frontend Developer</title>
     <meta
       name="description"
       content="Portfolio UI/UX designerki i frontend developerki."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Kapakana&family=Michroma&family=Poppins:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&family=Corinthia:wght@400;700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <script type="module" crossorigin src="/assets/index-BAjzdScj.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-C-UO1lQf.css">
+    <style>
+      #initial-loader {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--background, #fbfaf7);
+        z-index: 9999;
+      }
+
+      #initial-loader .loading-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      #initial-loader .loading-box {
+        display: grid;
+        grid-template-columns: repeat(3, 0.625rem);
+        grid-template-rows: repeat(3, 0.625rem);
+        gap: 0.25rem;
+        padding: 0.75rem;
+      }
+
+      #initial-loader .loading-box span {
+        background: var(--accent, #3d6fe0);
+        animation: loadingBlink 1.2s steps(1) infinite;
+      }
+
+      #initial-loader .loading-box span:nth-child(1) {
+        animation-delay: 0s;
+      }
+
+      #initial-loader .loading-box span:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+
+      #initial-loader .loading-box span:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+
+      #initial-loader .loading-box span:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+
+      #initial-loader .loading-box span:nth-child(5) {
+        animation-delay: 0.4s;
+      }
+
+      #initial-loader .loading-box span:nth-child(6) {
+        animation-delay: 0.5s;
+      }
+
+      #initial-loader .loading-box span:nth-child(7) {
+        animation-delay: 0.6s;
+      }
+
+      #initial-loader .loading-box span:nth-child(8) {
+        animation-delay: 0.7s;
+      }
+
+      #initial-loader .loading-box span:nth-child(9) {
+        animation-delay: 0.8s;
+      }
+
+      @keyframes loadingBlink {
+        0%,
+        100% {
+          opacity: 0.15;
+        }
+
+        50% {
+          opacity: 1;
+        }
+      }
+
+      #initial-loader .loading-label {
+        margin: 0;
+        color: var(--ink-soft, #3a3a3e);
+        font-family: system-ui, sans-serif;
+        font-size: 1.25rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        line-height: 1.4;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      #initial-loader.fade-out {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-fSjk8hfC.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-JNOGO4U7.css">
   </head>
   <body>
+    <div id="initial-loader">
+      <div class="loading-content">
+        <div class="loading-box">
+          <span></span><span></span><span></span> <span></span><span></span
+          ><span></span> <span></span><span></span><span></span>
+        </div>
+        <p class="loading-label">Już prawie gotowe...</p>
+      </div>
+    </div>
     <div id="app"></div>
   </body>
 </html>
