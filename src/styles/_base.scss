@@ -112,11 +112,6 @@ section[id] {
   scroll-margin-top: 80px;
 }
 
-.font-script {
-  font-family: 'Kapakana', cursive;
-  font-weight: 400;
-}
-
 .font-display {
   font-family: 'Michroma', sans-serif;
   font-weight: 400;
@@ -145,4 +140,10 @@ section[id] {
 .page-leave-to {
   opacity: 0;
   transform: translateY(16px);
+}
+
+:focus-visible {
+  outline: 5px solid #6bb0ff75;
+  outline-offset: $s-2;
+  border-radius: $s-4;
 }

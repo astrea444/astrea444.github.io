@@ -5,9 +5,8 @@
             :image="project.image" :image-alt="project.imageAlt" />
 
         <VisualSection :title="s?.visualIdentity?.title" :description="s?.visualIdentity?.description"
-            :colors="s?.visualIdentity?.colors" :typography="s?.visualIdentity?.typography"
-            :after-text="s?.visualIdentity?.afterText" :images="s?.visualIdentity?.images"
-            :components="s?.visualIdentity.components" />
+            :colors="s?.visualIdentity?.colors" :after-text="s?.visualIdentity?.afterText"
+            :images="s?.visualIdentity?.images" :components="s?.visualIdentity.components" />
 
         <ParagraphSection v-if="s?.process" :title="s.process.title" :blocks="[
             {
@@ -68,10 +67,12 @@ const { open } = useLightbox()
 const project = computed(() => projects.find(p => p.id === 1))
 const s = computed(() => project.value?.sections)
 
+const base = import.meta.env.BASE_URL
+
 const showcaseImages = [
-    { src: "/assets/project1/home1.png", alt: "Strona główna" },
-    { src: "/assets/project1/home2.png", alt: "Strona główna" },
-    { src: "/assets/project1/admin.png", alt: "Panel Administracyjny" },
+    { src: `${base}assets/project1/home1.webp`, alt: "Strona główna" },
+    { src: `${base}assets/project1/home2.webp`, alt: "Strona główna" },
+    { src: `${base}assets/project1/admin.webp`, alt: "Panel Administracyjny" },
 ]
 </script>
 

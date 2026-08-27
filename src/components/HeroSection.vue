@@ -1,4 +1,6 @@
 <script setup>
+import PortfolioText from './PortfolioText.vue';
+
 const badges = ['Graphic Design', 'UI/UX Design', 'Frontend Dev']
 </script>
 
@@ -6,12 +8,9 @@ const badges = ['Graphic Design', 'UI/UX Design', 'Frontend Dev']
   <section class="hero">
     <div class="hero-center">
       <p class="hero-kicker" v-reveal style="transition-delay: 0.05s">Wiktoria Laska</p>
-      <h1 class="hero-title" v-reveal style="transition-delay: 0.15s">
-        <span class="font-script script big">P</span>
-        <span class="font-display rounded">ort</span>
-        <span class="font-script script tail">f</span>
-        <span class="font-display rounded">olio</span>
-      </h1>
+      <div class="hero-title" v-reveal style="transition-delay: 0.15s">
+        <PortfolioText />
+      </div>
       <div class="badges-row" v-reveal style="transition-delay: 0.3s">
         <span v-for="(b, i) in badges" :key="b" class="badge" :class="`badge-${i}`">{{ b }}</span>
       </div>
@@ -66,52 +65,12 @@ const badges = ['Graphic Design', 'UI/UX Design', 'Frontend Dev']
 
 .hero-title {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: center;
-  line-height: 1;
-  margin: $s-1 0 $s-1;
-  font-size: calc($fs-3xl * 4);
-  flex-wrap: wrap;
-
-  @include respond-max(mobile) {
-    font-size: calc($fs-3xl * 2) !important;
-  }
-
-  @include respond-max(tablet) {
-    font-size: calc($fs-3xl * 3.5);
-  }
-
-  @include respond(sm) {
-    font-size: calc($fs-3xl * 4);
-    flex-wrap: nowrap;
-  }
-
-  .rounded {
-    color: $c-fg;
-    letter-spacing: 0.05em;
-    font-size: 0.62em;
-    z-index: 99;
-  }
-
-  .script {
-    color: $c-accent;
-  }
-
-  .script.big {
-    font-size: 2em;
-    margin-right: -0.25em;
-    rotate: -5deg;
-  }
-
-  .script.tail {
-    font-size: 1.7em;
-    margin: 0 -0.03em 0 0.05em;
-    position: relative;
-    rotate: -9deg;
-    top: 0.02em;
-    z-index: 0;
-  }
+  margin: $s-12 0 0;
+  min-height: 12rem;
 }
+
 
 .badges-row {
   display: flex;

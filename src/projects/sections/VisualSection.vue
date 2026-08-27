@@ -38,22 +38,9 @@ const props = defineProps({
   description: { type: String, default: '' },
   colors: { type: Array, default: () => [] },
   components: { type: String, default: '' },
-  typography: { type: Array, default: () => [] },
   afterText: { type: String, default: '' },
   images: { type: Array, default: () => [] }
 })
-
-const firstColor = computed(() => props.colors[0]?.hex ?? '#ffffff')
-const lastColor = computed(() => props.colors.at(-1)?.hex ?? '#000000')
-
-function fontClass(fontFamily) {
-  return fontFamily
-    .replace(/[^a-zA-Z0-9\s]/g, '')
-    .trim()
-    .split(/\s+/)
-    .map(w => w.toLowerCase())
-    .join('-')
-}
 
 const paragraphs = computed(() => {
   if (!props.description) return []

@@ -29,6 +29,7 @@ defineProps({
   display: flex;
   flex-wrap: wrap;
   gap: $s-4;
+  user-select: none
 }
 
 .pill {

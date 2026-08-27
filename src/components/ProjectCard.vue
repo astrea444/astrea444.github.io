@@ -171,11 +171,5 @@ defineProps({
   .project-body {
     grid-template-columns: 1fr;
   }
-
-  .project.reversed {
-    .project-body {
-      direction: ltr;
-    }
-  }
 }
 </style>

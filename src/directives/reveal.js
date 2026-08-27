@@ -1,4 +1,19 @@
 let sharedObserver = null;
+let fontsReadyPromise = null;
+
+function getFontsReady() {
+  if (fontsReadyPromise) return fontsReadyPromise;
+
+  const fontsReady =
+    document.fonts && document.fonts.ready
+      ? document.fonts.ready
+      : Promise.resolve();
+
+  const timeout = new Promise((resolve) => setTimeout(resolve, 2000));
+
+  fontsReadyPromise = Promise.race([fontsReady, timeout]);
+  return fontsReadyPromise;
+}
 
 function getObserver() {
   if (sharedObserver) return sharedObserver;
@@ -25,7 +40,9 @@ export const revealDirective = {
       el.classList.add("in-view");
       return;
     }
-    observer.observe(el);
+    getFontsReady().then(() => {
+      observer.observe(el);
+    });
   },
   unmounted(el) {
     const observer = getObserver();

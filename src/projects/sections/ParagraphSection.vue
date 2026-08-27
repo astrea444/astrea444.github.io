@@ -184,10 +184,11 @@ function getGalleryGroups(block) {
   .row-gallery {
     display: flex;
     gap: $s-8;
-    width: 90vw;
+    max-width: 90vw;
+    width: 100%;
     overflow-x: auto;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     padding: $s-6 0;
     scrollbar-width: thin;
 

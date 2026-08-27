@@ -1,10 +1,19 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import { fileURLToPath, URL } from "node:url";
+import { copyFileSync } from "fs";
 
 export default defineConfig({
-  plugins: [vue()],
-  // base: "/personal-portfolio/",
+  plugins: [
+    vue(),
+    {
+      name: "copy-404",
+      closeBundle() {
+        copyFileSync("dist/index.html", "dist/404.html");
+      },
+    },
+  ],
+  base: "/",
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
@@ -13,7 +22,8 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@use "@/styles/_tokens.scss" as *; @use "@/styles/_base.scss" as *; @use "@/styles/_mixins.scss" as *;`,
+        api: "modern-compiler",
+        additionalData: `@use "@/styles/_tokens.scss" as *;  @use "@/styles/_mixins.scss" as *;`,
       },
     },
   },

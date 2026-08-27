@@ -11,9 +11,8 @@
         </section>
 
         <VisualSection :title="s?.visualIdentity?.title" :description="s?.visualIdentity?.description"
-            :colors="s?.visualIdentity?.colors" :typography="s?.visualIdentity?.typography"
-            :after-text="s?.visualIdentity?.afterText" :images="s?.visualIdentity?.images"
-            :components="s?.visualIdentity.components" />
+            :colors="s?.visualIdentity?.colors" :after-text="s?.visualIdentity?.afterText"
+            :images="s?.visualIdentity?.images" :components="s?.visualIdentity.components" />
 
 
         <ParagraphSection v-if="s?.project" :title="s.project.title" :blocks="[

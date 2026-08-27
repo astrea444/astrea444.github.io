@@ -1,3 +1,5 @@
+const base = import.meta.env.BASE_URL;
+
 export const projects = [
   {
     id: 1,
@@ -14,8 +16,8 @@ export const projects = [
     description:
       "Projekt kompleksowej identyfikacji wizualnej dla Młodzieżowej Rady Miejskiej, obejmujący stworzenie spójnego języka wizualnego wykorzystywanego zarówno w materiałach drukowanych, jak i w przestrzeni cyfrowej.\n\nCelem było zaprojektowanie nowoczesnej i przystępnej komunikacji skierowanej do młodych odbiorców, zachowując jednocześnie charakter oficjalnej organizacji.",
 
-    image: "/assets/project1/info.png",
-    mockup: "/assets/project1/laptop2.jpeg",
+    image: `${base}assets/project1/info.webp`,
+    mockup: `${base}assets/project1/laptop2.webp`,
 
     sections: {
       visualIdentity: {
@@ -31,22 +33,7 @@ export const projects = [
           { hex: "#F9F6F3" },
         ],
 
-        components: "/assets/project1/components.png",
-
-        typography: [
-          {
-            fontFamily: "Anybody",
-            sample: "Aa",
-            alphabet:
-              "ABCDEFGHIJKLMNOPQRSTUVWXYZ\nabcdefghijklmnopqrstuvwxyz\n1234567890",
-          },
-          {
-            fontFamily: "Work Sans",
-            sample: "Aa",
-            alphabet:
-              "ABCDEFGHIJKLMNOPQRSTUVWXYZ\nabcdefghijklmnopqrstuvwxyz\n1234567890",
-          },
-        ],
+        components: `${base}assets/project1/components.webp`,
 
         afterText:
           "Kolorystyka została oparta na barwach miasta obecnych w herbie i fladze Aleksandrowa Łódzkiego. Dodatkowym elementem systemu zostały geometryczne wzory inspirowane lokalnym wzornictwem, wykorzystywane głównie na kartach młodzieżowych.\n\nTypografia łączy bardziej charakterystyczny font Anybody z prostym i czytelnym Work Sans, dzięki czemu identyfikacja zachowuje młodzieżowy charakter bez utraty profesjonalnego wyglądu.",
@@ -59,27 +46,27 @@ export const projects = [
 
         images: [
           {
-            src: "/assets/project1/bento3.png",
+            src: `${base}assets/project1/bento3.webp`,
             alt: "Karty Młodzieżowe",
           },
           {
-            src: "/assets/project1/bento6.png",
+            src: `${base}assets/project1/bento6.webp`,
             alt: "Plakat",
           },
           {
-            src: "/assets/project1/bento1.png",
+            src: `${base}assets/project1/bento1.webp`,
             alt: "Wzór geometryczny",
           },
           {
-            src: "/assets/project1/bento5.png",
+            src: `${base}assets/project1/bento5.webp`,
             alt: "Ulotki",
           },
           {
-            src: "/assets/project1/bento2.png",
+            src: `${base}assets/project1/bento2.webp`,
             alt: "Karta Młodzieżowa",
           },
           {
-            src: "/assets/project1/bento4.png",
+            src: `${base}assets/project1/bento4.webp`,
             alt: "Rollup",
           },
         ],
@@ -93,8 +80,8 @@ export const projects = [
           "Finalny znak powstał z połączenia dwóch sylwetek oraz litery „M”, dzięki czemu identyfikacja nawiązuje bezpośrednio do nazwy organizacji, ale nadal pozostaje prostym i rozpoznawalnym symbolem.",
         ],
         image: {
-          src: "/assets/project1/concept.png",
-          alt: "Koncept logo",
+          src: `${base}assets/project1/concept.webp`,
+          alt: "Wariacje logo",
         },
       },
 
@@ -110,8 +97,8 @@ export const projects = [
         ],
 
         image: {
-          src: "/assets/project1/laptop3.jpeg",
-          alt: "Projekt strony internetowej",
+          src: `${base}assets/project1/laptop3.webp`,
+          alt: "Logowanie do panelu",
         },
       },
     },
@@ -131,8 +118,8 @@ export const projects = [
     description:
       "Projekt strony internetowej dla Orkiestry Dętej GOK w Kuryłówce, której celem było stworzenie przejrzystego i nowoczesnego serwisu prezentującego działalność zespołu, jego historię oraz aktualne wydarzenia.\n\nProjekt został zaprojektowany tak, aby połączyć elegancki charakter orkiestry z prostą i wygodną strukturą informacji dostępną zarówno na komputerze, jak i urządzeniach mobilnych.",
 
-    image: "/assets/project2/info.png",
-    mockup: "/assets/project2/main.png",
+    image: `${base}assets/project2/info.webp`,
+    mockup: `${base}assets/project2/main.webp`,
 
     sections: {
       visualIdentity: {
@@ -148,22 +135,7 @@ export const projects = [
           { hex: "#FDF7F8" },
         ],
 
-        components: "/assets/project2/components.png",
-
-        typography: [
-          {
-            fontFamily: "Corinthia",
-            sample: "Aa",
-            alphabet:
-              "ABCDEFGHIJKLM\nNOPQRSTUVWXYZ\nabcdefghijklmnopqrstuvwxyz\n1234567890",
-          },
-          {
-            fontFamily: "Libre Caslon Text",
-            sample: "Aa",
-            alphabet:
-              "ABCDEFGHIJKLMNOPQRSTUVWXYZ\nabcdefghijklmnopqrstuvwxyz\n1234567890",
-          },
-        ],
+        components: `${base}assets/project2/components.webp`,
 
         afterText:
           "W typografii wykorzystałam font Corinthia jako charakterystyczny element wizualny nawiązujący do muzycznego charakteru projektu. Uzupełnieniem został Libre Caslon Text, który dzięki klasycznej formie zapewnia dobrą czytelność większych ilości tekstu.\n\nProjekt obejmował przygotowanie kompletnego interfejsu strony w wersji desktopowej i mobilnej, wraz z układem podstron oraz zestawem elementów graficznych wykorzystanych w serwisie.",
@@ -183,8 +155,8 @@ export const projects = [
         ],
 
         image: {
-          src: "/assets/project2/tablet.jpeg",
-          alt: "Makieta strony internetowej",
+          src: `${base}assets/project2/tablet.webp`,
+          alt: "Makieta strony na tablecie",
         },
       },
 
@@ -200,16 +172,46 @@ export const projects = [
         ],
 
         images: [
-          { src: "/assets/project2/icon1.png", alt: "Ikona instrumentu" },
-          { src: "/assets/project2/icon2.png", alt: "Ikona instrumentu" },
-          { src: "/assets/project2/icon3.png", alt: "Ikona instrumentu" },
-          { src: "/assets/project2/icon4.png", alt: "Ikona instrumentu" },
-          { src: "/assets/project2/icon5.png", alt: "Ikona instrumentu" },
-          { src: "/assets/project2/icon6.png", alt: "Ikona instrumentu" },
-          { src: "/assets/project2/icon7.png", alt: "Ikona instrumentu" },
-          { src: "/assets/project2/icon8.png", alt: "Ikona instrumentu" },
-          { src: "/assets/project2/icon9.png", alt: "Ikona instrumentu" },
-          { src: "/assets/project2/icon10.png", alt: "Ikona instrumentu" },
+          {
+            src: `${base}assets/project2/icon1.webp`,
+            alt: "Ikona fletu",
+          },
+          {
+            src: `${base}assets/project2/icon2.webp`,
+            alt: "Ikona talerzy",
+          },
+          {
+            src: `${base}assets/project2/icon3.webp`,
+            alt: "Ikona bębna",
+          },
+          {
+            src: `${base}assets/project2/icon4.webp`,
+            alt: "Ikona trąbki",
+          },
+          {
+            src: `${base}assets/project2/icon5.webp`,
+            alt: "Ikona werbla",
+          },
+          {
+            src: `${base}assets/project2/icon6.webp`,
+            alt: "Ikona puzonu",
+          },
+          {
+            src: `${base}assets/project2/icon7.webp`,
+            alt: "Ikona tuby",
+          },
+          {
+            src: `${base}assets/project2/icon8.webp`,
+            alt: "Ikona saksofonu",
+          },
+          {
+            src: `${base}assets/project2/icon9.webp`,
+            alt: "Ikona klarnetu",
+          },
+          {
+            src: `${base}assets/project2/icon10.webp`,
+            alt: "Ikona rąk dyrygenta",
+          },
         ],
       },
 
@@ -223,8 +225,8 @@ export const projects = [
         ],
 
         image: {
-          src: "/assets/project2/mockup.png",
-          alt: "Wersja desktopowa strony",
+          src: `${base}assets/project2/mockup.webp`,
+          alt: "Makiety strony",
         },
       },
 
@@ -238,7 +240,7 @@ export const projects = [
         ],
 
         image: {
-          src: "/assets/project2/mobile.png",
+          src: `${base}assets/project2/mobile.webp`,
           alt: "Wersja mobilna strony",
         },
       },
@@ -260,13 +262,10 @@ export const projects = [
     title: "Dashboard Administracyjny",
     description:
       "Interfejs administracyjny do monitorowania aktywności serwera, zarządzania użytkownikami oraz kontroli systemu uprawnień. Projekt został zaprojektowany jako nowoczesna aplikacja SPA z ciemnym interfejsem, przejrzystą strukturą informacji i naciskiem na wygodną obsługę dużej ilości danych.",
-    image: "/assets/project3/info.png",
-    mockup: "/assets/project3/mockup.png",
+    image: `${base}assets/project3/info.webp`,
+    mockup: `${base}assets/project3/mockup.webp`,
 
     sections: {
-      description:
-        "Projekt panelu administracyjnego typu SPA łączący projekt interfejsu oraz implementację frontendu. Aplikacja umożliwia monitorowanie aktywności serwera, zarządzanie użytkownikami oraz konfigurację systemu ról i uprawnień.\n\nOdpowiadałam zarówno za przygotowanie projektu w Figmie, jak i implementację całego frontendu we Vue 3.",
-
       project: {
         title: "Założenia projektu",
 
@@ -279,7 +278,7 @@ export const projects = [
         ],
 
         image: {
-          src: "/assets/project3/mockup.png",
+          src: `${base}assets/project3/mockup.webp`,
           alt: "Makieta panelu administracyjnego",
         },
       },
@@ -297,16 +296,7 @@ export const projects = [
           { hex: "#F9FAFB" },
         ],
 
-        components: "/assets/project3/components.png",
-
-        typography: [
-          {
-            fontFamily: "Inter",
-            sample: "Aa",
-            alphabet:
-              "ABCDEFGHIJKLMNOPQRSTUVWXYZ\nabcdefghijklmnopqrstuvwxyz\n1234567890",
-          },
-        ],
+        components: `${base}assets/project3/components.webp`,
 
         afterText:
           "W projekcie wykorzystałam font Inter, który dzięki wysokiej czytelności dobrze sprawdza się w aplikacjach prezentujących dużą ilość danych. Projekt obejmował przygotowanie kompletnego systemu komponentów, formularzy, tabel, kart oraz elementów nawigacyjnych wykorzystywanych we wszystkich widokach panelu.",
@@ -329,12 +319,12 @@ export const projects = [
           {
             images: [
               {
-                src: "/assets/project3/logs1.png",
+                src: `${base}assets/project3/logs1.webp`,
                 alt: "Logowanie",
               },
               {
-                src: "/assets/project3/logs2.png",
-                alt: "Dashboard",
+                src: `${base}assets/project3/logs2.webp`,
+                alt: "Strona główna",
               },
             ],
             caption: "Logowanie i ekran główny",
@@ -342,11 +332,11 @@ export const projects = [
           {
             images: [
               {
-                src: "/assets/project3/logs3.png",
+                src: `${base}assets/project3/logs3.webp`,
                 alt: "Logi w widoku siatki",
               },
               {
-                src: "/assets/project3/logs4.png",
+                src: `${base}assets/project3/logs4.webp`,
                 alt: "Logi w widoku listy",
               },
             ],
@@ -355,11 +345,11 @@ export const projects = [
           {
             images: [
               {
-                src: "/assets/project3/logs5.png",
+                src: `${base}assets/project3/logs5.webp`,
                 alt: "Lista użytkowników",
               },
               {
-                src: "/assets/project3/logs6.png",
+                src: `${base}assets/project3/logs6.webp`,
                 alt: "Zarządzanie permisjami",
               },
             ],
@@ -378,8 +368,8 @@ export const projects = [
         ],
 
         image: {
-          src: "/assets/project3/laptop.png",
-          alt: "Dashboard",
+          src: `${base}assets/project3/laptop.webp`,
+          alt: "Strona logowania",
         },
       },
     },
@@ -411,8 +401,8 @@ export const projects = [
     description:
       "MNIAM to aplikacja mobilna wspierająca planowanie posiłków i organizację codziennych zakupów. Umożliwia tworzenie planów posiłków, zapisywanie przepisów, zarządzanie domową spiżarnią oraz automatyczne przygotowywanie list zakupowych w jednym miejscu.",
 
-    image: "/assets/project4/info.png",
-    mockup: "/assets/project4/mockup2.png",
+    image: `${base}assets/project4/info.webp`,
+    mockup: `${base}assets/project4/mockup2.webp`,
 
     sections: {
       visualIdentity: {
@@ -423,22 +413,12 @@ export const projects = [
 
         colors: [
           { hex: "#16233B" },
-          // { hex: "#E7F6ED" },
           { hex: "#78CA7A" },
           { hex: "#64BE5B" },
           { hex: "#F2F4F7" },
         ],
 
-        components: "/assets/project4/components.png",
-
-        typography: [
-          {
-            fontFamily: "Inter",
-            sample: "Aa",
-            alphabet:
-              "ABCDEFGHIJKLMNOPQRSTUVWXYZ\nabcdefghijklmnopqrstuvwxyz\n1234567890",
-          },
-        ],
+        components: `${base}assets/project4/components.webp`,
 
         afterText:
           "Interfejs został zaprojektowany z wykorzystaniem spójnego zestawu komponentów, typografii i zasad dotyczących odstępów. Miękkie zaokrąglenia oraz subtelne cienie nadają całości lekki charakter, jednocześnie zachowując czytelną strukturę informacji. Typografia została dostosowana do różnych rozmiarów ekranów, aby zapewnić komfortowe korzystanie z aplikacji.",
@@ -461,8 +441,8 @@ export const projects = [
           },
           {
             type: "image",
-            src: "/assets/project4/layout.png",
-            alt: "Schemat przepływu użytkownika w aplikacji MNIAM",
+            src: `${base}assets/project4/layout.webp`,
+            alt: "Makieta ekranów głównych aplikacji",
             size: "large",
           },
         ],
@@ -482,24 +462,6 @@ export const projects = [
             ],
           },
         ],
-        images: [
-          {
-            src: "/assets/project4/pantry1.png",
-            alt: "Widok dodawania produktu do spiżarni",
-          },
-          {
-            src: "/assets/project4/pantry4.png",
-            alt: "Widok główny spiżarni z podziałem na kategorie",
-          },
-          {
-            src: "/assets/project4/pantry2.png",
-            alt: "Widok dodawania produktu do spiżarni",
-          },
-          {
-            src: "/assets/project4/pantry3.png",
-            alt: "Widok główny spiżarni z podziałem na kategorie",
-          },
-        ],
       },
 
       recipes: {
@@ -514,20 +476,6 @@ export const projects = [
 
               "Wybrane posiłki tworzą podstawę do automatycznego przygotowania listy zakupowej. Dzięki połączeniu planowania, przepisów i spiżarni użytkownik nie musi samodzielnie analizować każdego przepisu i tworzyć listy brakujących produktów.",
             ],
-          },
-        ],
-        images: [
-          {
-            src: "/assets/project4/recipe1.png",
-            alt: "Lista przepisów dostępnych w aplikacji MNIAM",
-          },
-          {
-            src: "/assets/project4/recipe2.png",
-            alt: "Widok szczegółów przepisu i listy składników",
-          },
-          {
-            src: "/assets/project4/recipe3.png",
-            alt: "Widok planowania posiłków",
           },
         ],
       },
@@ -547,8 +495,8 @@ export const projects = [
           },
           {
             type: "image",
-            src: "/assets/project4/mockup3.png",
-            alt: "Schemat przepływu użytkownika w aplikacji MNIAM",
+            src: `${base}assets/project4/mockup3.webp`,
+            alt: "Makiety aplikacji",
             size: "large",
           },
         ],
@@ -566,60 +514,10 @@ export const projects = [
           },
           {
             type: "image",
-            src: "/assets/project4/layout2.png",
-            alt: "Blabla",
+            src: `${base}assets/project4/layout2.webp`,
+            alt: "Wybrane widoki",
             size: "xl",
           },
-          // {
-          //   type: "gallery",
-          //   images: [
-          //     {
-          //       src: "/assets/project4/home.png",
-          //       alt: "Ekran powitalny aplikacji",
-          //     },
-          //     {
-          //       src: "/assets/project4/home2.png",
-          //       alt: "Ekran powitalny aplikacji",
-          //     },
-          //     {
-          //       src: "/assets/project4/pantry1.png",
-          //       alt: "Widok dodawania produktu do spiżarni",
-          //     },
-          //     {
-          //       src: "/assets/project4/recipe1.png",
-          //       alt: "Lista przepisów dostępnych w aplikacji MNIAM",
-          //     },
-          //     {
-          //       src: "/assets/project4/recipe3.png",
-          //       alt: "Lista przepisów dostępnych w aplikacji MNIAM",
-          //     },
-          //     {
-          //       src: "/assets/project4/shopping1.png",
-          //       alt: "Lista przepisów dostępnych w aplikacji MNIAM",
-          //     },
-          //   ],
-          // },
-          // {
-          //   type: "gallery",
-          //   images: [
-          //     {
-          //       src: "/assets/project4/onboarding1.png",
-          //       alt: "Ekran powitalny aplikacji",
-          //     },
-          //     {
-          //       src: "/assets/project4/onboarding2.png",
-          //       alt: "Pusty stan spiżarni",
-          //     },
-          //     {
-          //       src: "/assets/project4/onboarding3.png",
-          //       alt: "Ekran główny aplikacji MNIAM",
-          //     },
-          //     {
-          //       src: "/assets/project4/onboarding4.png",
-          //       alt: "Widok profilu użytkownika",
-          //     },
-          //   ],
-          // },
         ],
       },
     },

@@ -5,9 +5,8 @@
             :image="project.image" :image-alt="project.imageAlt" />
 
         <VisualSection :title="s?.visualIdentity?.title" :description="s?.visualIdentity?.description"
-            :colors="s?.visualIdentity?.colors" :typography="s?.visualIdentity?.typography"
-            :after-text="s?.visualIdentity?.afterText" :images="s?.visualIdentity?.images"
-            :components="s?.visualIdentity.components" />
+            :colors="s?.visualIdentity?.colors" :after-text="s?.visualIdentity?.afterText"
+            :images="s?.visualIdentity?.images" :components="s?.visualIdentity.components" />
 
         <ParagraphSection v-if="s?.process" :title="s.process.title" :blocks="[
             {
@@ -38,8 +37,8 @@
             }
         ]" />
         <div class="desktop_showcase" v-reveal>
-            <img src="/assets/project2/home.png" alt="Desktop Showcase" class="clickable"
-                @click="open('/assets/project2/home.png', 'Desktop Showcase')" />
+            <img :src="`${base}assets/project2/home.webp`" alt="Desktop Showcase" class="clickable"
+                @click="open(`${base}assets/project2/home.webp`, 'Desktop Showcase')" />
         </div>
         <ParagraphSection v-if="s?.mobile" :title="s.mobile.title" :blocks="[
             {
@@ -68,6 +67,8 @@ import NextProject from '@/components/NextProject.vue'
 import { useLightbox } from '@/composables/useLightbox'
 
 const { open } = useLightbox()
+
+const base = import.meta.env.BASE_URL
 
 const project = computed(() => projects.find(p => p.id === 2))
 const s = computed(() => project.value?.sections)
