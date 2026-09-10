@@ -17,6 +17,7 @@ import ContactSection from '../components/ContactSection.vue'
 <style lang="scss" scoped>
 .home {
   margin-inline: auto;
+  container-type: inline-size;
 
   @include respond(sm) {
     max-width: 960px;

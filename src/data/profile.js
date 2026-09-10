@@ -29,9 +29,9 @@ export const technologies = [
 
 export const tools = [
   { label: 'Figma', icon: 'logos:figma', scale: 0.9 },
-  { label: 'Cypress', icon: 'logos:cypress-icon', bg: '#fff', scale: 1.2 },
-  { label: 'Canva', icon: 'devicon:canva', scale: 1.3 },
   { label: 'Affinity', icon: 'vscode-icons:file-type-affinity', bg: '#A7F175', scale: 1.2 },
   { label: 'GIT', icon: 'devicon:git', scale: 1.2 },
+  { label: 'Canva', icon: 'devicon:canva', scale: 1.3 },
+  { label: 'Cypress', icon: 'logos:cypress-icon', bg: '#fff', scale: 1.2 },
   { label: 'Postman', icon: 'logos:postman-icon', scale: 1.1 }
 ]

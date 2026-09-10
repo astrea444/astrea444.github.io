@@ -88,6 +88,11 @@ const showcaseImages = [
         padding: 12rem 0 0;
         width: 100%;
 
+        @include respond-max(tablet) {
+            padding: 6rem 0 0;
+        }
+
+
         .showcase-container {
             display: flex;
             flex-direction: row;
@@ -96,6 +101,7 @@ const showcaseImages = [
             gap: 0;
             margin: 0 auto;
             width: 100%;
+
         }
 
         h2 {
@@ -112,6 +118,10 @@ const showcaseImages = [
             filter: drop-shadow(0 8px 5px rgba(0, 0, 0, 0.1));
             transition: transform 0.4s $ease, box-shadow 0.4s $ease;
             cursor: pointer;
+
+            @include respond-max(tablet) {
+                width: 45%;
+            }
 
             &:hover {
                 transform: translateY(-2px);

@@ -17,27 +17,31 @@
     </main>
 </template>
 <style lang="scss" scoped>
-.hero-title {
+main {
+    min-height: 60vh;
     display: flex;
-    align-items: baseline;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    line-height: 1;
-    margin: $s-1 0 $s-1;
-    font-size: calc($fs-3xl * 4);
-    color: $c-accent;
-    flex-wrap: wrap;
+    text-align: center;
+}
 
-    @include respond-max(mobile) {
-        font-size: calc($fs-3xl * 2) !important;
-    }
+.hero-title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 4rem auto 0;
+    font-size: calc($fs-3xl * 3);
 
     @include respond-max(tablet) {
-        font-size: calc($fs-3xl * 3.5);
+        font-size: calc($fs-3xl * 2);
+        margin-top: 2rem;
     }
 
-    @include respond(sm) {
-        font-size: calc($fs-3xl * 4);
-        flex-wrap: nowrap;
+    @include respond-max(mobile) {
+        font-size: calc($fs-3xl * 1.5);
     }
 
     .rounded {
@@ -45,20 +49,26 @@
         font-size: 2.5em;
         z-index: -1;
         position: absolute;
-        top: 45%;
-        opacity: 0.12;
+        top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        opacity: 0.12;
+        color: $c-accent;
+        pointer-events: none;
     }
 
     .script {
-        margin-top: 12rem;
-    }
-}
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 35rem;
 
-main {
-    flex-direction: column;
-    @include flex-center;
+        svg {
+            width: 100%;
+            height: auto;
+        }
+    }
 }
 
 .link-button {
@@ -70,6 +80,6 @@ main {
     font-weight: 500;
     font-size: $fs-base;
     padding: $s-4 $s-6;
-    margin-top: 5rem;
+    margin-top: 3rem;
 }
 </style>

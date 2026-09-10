@@ -10,13 +10,15 @@ defineProps({
     <div class="project-body">
       <div class="project-visual">
         <img :src="project.mockup" class="image" :alt="project.title" />
+        <div class="tag-row">
+          <span v-for="tag in project.tags" :key="tag" class="tag">
+            <Icon :icon="tag" />
+          </span>
+        </div>
       </div>
       <div class="project-text">
         <h3>{{ project.title }}</h3>
         <p>{{ project.description }}</p>
-        <div class="tag-row">
-          <span v-for="tag in project.tags" :key="tag" class="tag">{{ tag }}</span>
-        </div>
         <div class="open-hint">Zobacz szczegóły
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M5 12h14M13 6l6 6-6 6" />
@@ -98,14 +100,24 @@ defineProps({
   transition: transform 0.6s $ease, box-shadow 0.6s $ease;
   position: relative;
 
+  .tag-row {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+
+
   .image {
+    border: $border-w solid $c-border;
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
     object-fit: cover;
-    border-radius: $s-4;
+    border-radius: $s-5;
     object-position: center;
   }
 }

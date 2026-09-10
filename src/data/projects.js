@@ -10,7 +10,7 @@ export const projects = [
         value: "identyfikacja wizualna, UI Design, materiały promocyjne",
       },
     ],
-
+    tags: ["ui", "graphic"],
     title: "Młodzieżowa Rada Miejska w Aleksandrowie Łódzkim",
 
     description:
@@ -112,7 +112,7 @@ export const projects = [
         value: "UI Design, Responsive Web Design, Ikonografia",
       },
     ],
-
+    tags: ["ui"],
     title: "Orkiestra dęta GOK w Kuryłówce",
 
     description:
@@ -259,6 +259,7 @@ export const projects = [
         value: "https://github.com/astrea444/admin-panel",
       },
     ],
+    tags: ["ui", "code"],
     title: "Dashboard Administracyjny",
     description:
       "Interfejs administracyjny do monitorowania aktywności serwera, zarządzania użytkownikami oraz kontroli systemu uprawnień. Projekt został zaprojektowany jako nowoczesna aplikacja SPA z ciemnym interfejsem, przejrzystą strukturą informacji i naciskiem na wygodną obsługę dużej ilości danych.",
@@ -395,7 +396,7 @@ export const projects = [
         value: "identyfikacja wizualna, UI/UX Design, frontend (w toku)",
       },
     ],
-
+    tags: ["ui", "graphic", "code"],
     title: "Aplikacja mobilna MNIAM",
 
     description:

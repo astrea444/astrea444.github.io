@@ -21,23 +21,16 @@
 
 <script setup>
 import { useRouter, useRoute } from "vue-router";
-import { nextTick } from "vue";
 
 const router = useRouter();
 const route = useRoute();
 
 function scrollToSection(id) {
   if (route.path !== "/") {
-    router.push("/").then(() => {
-      nextTick(() => scrollTo(id));
-    });
+    router.push({ path: "/", hash: `#${id}` });
   } else {
-    scrollTo(id);
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   }
-}
-
-function scrollTo(id) {
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 }
 </script>
 
@@ -102,8 +95,14 @@ function scrollTo(id) {
       transition: right 0.45s $ease;
     }
 
-    &:hover::after {
+    &:active::after {
       right: 0;
+    }
+
+    @media (hover: hover) {
+      &:hover::after {
+        right: 0;
+      }
     }
   }
 
