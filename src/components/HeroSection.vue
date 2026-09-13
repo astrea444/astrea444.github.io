@@ -75,6 +75,7 @@ const decorItems = [
 }
 
 .hero-decor {
+  // display: none;
   position: absolute;
   inset: 1rem -18rem;
   z-index: 0;

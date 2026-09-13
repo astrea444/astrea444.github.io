@@ -37,7 +37,12 @@ const router = createRouter({
     if (to.hash) {
       return new Promise((resolve) => {
         setTimeout(() => {
-          resolve({ el: to.hash, behavior: "smooth" });
+          const el = document.querySelector(to.hash);
+          if (el) {
+            const top = el.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({ top, behavior: "smooth" });
+          }
+          resolve(false);
         }, 400);
       });
     }
