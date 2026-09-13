@@ -27,6 +27,7 @@ footer {
   border-top: $border-w solid $c-border;
   width: 100%;
   padding: $s-8 $s-12;
+  background: $c-bg;
 }
 
 .footer-inner {

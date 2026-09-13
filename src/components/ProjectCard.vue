@@ -1,4 +1,5 @@
 <script setup>
+import { Icon } from '@iconify/vue'
 defineProps({
   project: { type: Object, required: true },
   index: { type: Number, required: true }
@@ -12,7 +13,7 @@ defineProps({
         <img :src="project.mockup" class="image" :alt="project.title" />
         <div class="tag-row">
           <span v-for="tag in project.tags" :key="tag" class="tag">
-            <Icon :icon="tag" />
+            <Icon :icon="`lucide:${tag}`" height="24" width="24" />
           </span>
         </div>
       </div>
@@ -68,6 +69,10 @@ defineProps({
     .project-body {
       direction: rtl;
 
+      .tag-row {
+        justify-content: flex-end;
+      }
+
       >* {
         direction: ltr;
       }
@@ -106,6 +111,30 @@ defineProps({
     width: 100%;
     height: 100%;
     z-index: 2;
+    padding: $s-2;
+    height: 100%;
+    gap: $s-2;
+    display: flex;
+    align-items: flex-end;
+
+    .tag {
+      @include inset-shadow-soft;
+      @include flex-center;
+      background: $c-bg;
+      border: $border-w solid $c-border;
+      border-radius: $radius-pill;
+      width: 3.5rem;
+      height: 3.5rem;
+
+      svg {
+        height: 65%;
+        width: 65%;
+
+        :deep(g) {
+          stroke-width: 1.5;
+        }
+      }
+    }
   }
 
 

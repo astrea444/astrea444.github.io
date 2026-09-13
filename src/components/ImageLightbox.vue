@@ -4,13 +4,17 @@
             <div v-if="state.isOpen" class="lightbox" @click.self="handleClose" @wheel.prevent.stop="onWheel">
                 <div class="toolbar">
                     <div class="zoom">
-                        <button class="btn" @click="zoomOut" :disabled="scale <= MIN_SCALE"
-                            aria-label="Oddal">−</button>
+                        <button class="btn" @click="zoomOut" :disabled="scale <= MIN_SCALE" aria-label="Oddal">
+                            <Icon icon="lucide:minus" height="18" width="18" />
+                        </button>
                         <span class="scale">{{ Math.round(scale * 100) }}%</span>
-                        <button class="btn" @click="zoomIn" :disabled="scale >= MAX_SCALE"
-                            aria-label="Przybliż">+</button>
+                        <button class="btn" @click="zoomIn" :disabled="scale >= MAX_SCALE" aria-label="Przybliż">
+                            <Icon icon="lucide:plus" height="18" width="18" />
+                        </button>
                     </div>
-                    <button class="btn btn--close" @click="handleClose" aria-label="Zamknij">×</button>
+                    <button class="btn btn--close" @click="handleClose" aria-label="Zamknij">
+                        <Icon icon="lucide:x" height="18" width="18" />
+                    </button>
                 </div>
 
                 <button v-if="state.images.length > 1" class="nav-btn prev" @click.stop="prev" aria-label="Poprzednie">
@@ -233,8 +237,14 @@ onBeforeUnmount(() => {
                 border: none;
             }
 
-            span {
-                line-height: 1;
+            .scale {
+                min-width: 3.5rem;
+                text-align: center;
+                line-height: 1.2;
+                font-weight: 500;
+                font-size: $fs-sm;
+                color: $c-ink-soft;
+                user-select: none;
             }
         }
 
@@ -250,6 +260,7 @@ onBeforeUnmount(() => {
             border: $border-w solid $c-border;
             line-height: 1;
             cursor: pointer;
+            padding: $s-1;
             transition: background-color 0.3s ease, color 0.3s ease;
 
             &:hover:not(:disabled) {
@@ -266,22 +277,6 @@ onBeforeUnmount(() => {
                 cursor: not-allowed;
             }
 
-            &--close {
-                margin-left: $s-2;
-
-                &:hover {
-                    background-color: $c-accent-4;
-                    color: $c-accent-fg;
-                }
-            }
-        }
-
-        .scale {
-            min-width: 3.5rem;
-            text-align: center;
-            font-size: $fs-xs;
-            color: $c-ink-soft;
-            user-select: none;
         }
     }
 

@@ -4,102 +4,163 @@ export const projects = [
   {
     id: 1,
     meta: [
-      { label: "Data", value: "styczeń-luty 2025" },
+      { label: "Data", value: "lipiec–sierpień 2026" },
       {
         label: "Zakres",
-        value: "identyfikacja wizualna, UI Design, materiały promocyjne",
+        value: "identyfikacja wizualna, UI/UX Design, frontend (w toku)",
       },
     ],
-    tags: ["ui", "graphic"],
-    title: "Młodzieżowa Rada Miejska w Aleksandrowie Łódzkim",
+    tags: ["app-window", "brush", "code-xml"],
+    title: "Aplikacja mobilna MNIAM",
 
     description:
-      "Projekt kompleksowej identyfikacji wizualnej dla Młodzieżowej Rady Miejskiej, obejmujący stworzenie spójnego języka wizualnego wykorzystywanego zarówno w materiałach drukowanych, jak i w przestrzeni cyfrowej.\n\nCelem było zaprojektowanie nowoczesnej i przystępnej komunikacji skierowanej do młodych odbiorców, zachowując jednocześnie charakter oficjalnej organizacji.",
+      "MNIAM to aplikacja mobilna wspierająca planowanie posiłków i organizację codziennych zakupów. Umożliwia tworzenie planów posiłków, zapisywanie przepisów, zarządzanie domową spiżarnią oraz automatyczne przygotowywanie list zakupowych w jednym miejscu.",
 
-    image: `${base}assets/project1/info.webp`,
-    mockup: `${base}assets/project1/laptop2.webp`,
+    image: `${base}assets/project4/info.webp`,
+    mockup: `${base}assets/project4/mockup2.webp`,
 
     sections: {
       visualIdentity: {
-        title: "Identyfikacja wizualna",
+        title: "Kierunek wizualny i system interfejsu",
 
         description:
-          "Finalny znak oparty został na połączeniu dwóch sylwetek symbolizujących współpracę i społeczność. Ich forma tworzy literę „M”, dzięki czemu logo nawiązuje bezpośrednio do nazwy organizacji.\n\nZaokrąglona konstrukcja pozwala zachować przyjazny charakter projektu, jednocześnie pozostając czytelna i odpowiednia dla oficjalnej organizacji.",
+          "Kierunek wizualny został oparty na prostych, miękkich formach i kolorystyce nawiązującej do świeżości oraz produktów spożywczych. Główną rolę pełni zieleń, uzupełniona jasnym tłem i ciemnym granatem, który zapewnia odpowiedni kontrast dla najważniejszych treści.",
 
         colors: [
-          { hex: "#F66055" },
-          { hex: "#59BAFF" },
-          { hex: "#FFCD43" },
-          { hex: "#F9F6F3" },
+          { hex: "#16233B" },
+          { hex: "#78CA7A" },
+          { hex: "#64BE5B" },
+          { hex: "#F2F4F7" },
         ],
 
-        components: `${base}assets/project1/components.webp`,
+        components: `${base}assets/project4/components.webp`,
 
         afterText:
-          "Kolorystyka została oparta na barwach miasta obecnych w herbie i fladze Aleksandrowa Łódzkiego. Dodatkowym elementem systemu zostały geometryczne wzory inspirowane lokalnym wzornictwem, wykorzystywane głównie na kartach młodzieżowych.\n\nTypografia łączy bardziej charakterystyczny font Anybody z prostym i czytelnym Work Sans, dzięki czemu identyfikacja zachowuje młodzieżowy charakter bez utraty profesjonalnego wyglądu.",
+          "Interfejs został zaprojektowany z wykorzystaniem spójnego zestawu komponentów, typografii i zasad dotyczących odstępów. Miękkie zaokrąglenia oraz subtelne cienie nadają całości lekki charakter, jednocześnie zachowując czytelną strukturę informacji. Typografia została dostosowana do różnych rozmiarów ekranów, aby zapewnić komfortowe korzystanie z aplikacji.",
 
         images: [],
       },
+      problem: {
+        title: "Problem, który rozwiązuje MNIAM",
 
-      printMaterials: {
-        title: "Materiały drukowane i promocyjne",
+        blocks: [
+          {
+            type: "text",
+            paragraphs: [
+              "Planowanie posiłków, robienie zakupów i kontrolowanie produktów dostępnych w domu to czynności, które często wymagają korzystania z kilku różnych narzędzi. Użytkownik musi pamiętać, co znajduje się w spiżarni, czego brakuje, jakie posiłki chce przygotować oraz które produkty należy kupić.",
 
-        images: [
-          {
-            src: `${base}assets/project1/bento3.webp`,
-            alt: "Karty Młodzieżowe",
+              "Problemem nie jest samo wykonanie każdej z tych czynności, ale konieczność ciągłego przenoszenia informacji pomiędzy nimi. Produkt zapisany na liście zakupów nie jest automatycznie powiązany ze stanem spiżarni, a zaplanowany przepis wymaga dodatkowego sprawdzania dostępnych składników.",
+
+              "Celem MNIAM było połączenie tych procesów w jeden spójny system. Aplikacja wykorzystuje informacje wprowadzone przez użytkownika w różnych częściach aplikacji, aby ograniczyć konieczność wykonywania tych samych czynności kilka razy."
+            ]
           },
           {
-            src: `${base}assets/project1/bento6.webp`,
-            alt: "Plakat",
+            type: "image",
+            src: `${base}assets/project4/problem.png`,
+            alt: "Problem - Rozwiązanie - Rezultat",
+            size: "large",
           },
-          {
-            src: `${base}assets/project1/bento1.webp`,
-            alt: "Wzór geometryczny",
-          },
-          {
-            src: `${base}assets/project1/bento5.webp`,
-            alt: "Ulotki",
-          },
-          {
-            src: `${base}assets/project1/bento2.webp`,
-            alt: "Karta Młodzieżowa",
-          },
-          {
-            src: `${base}assets/project1/bento4.webp`,
-            alt: "Rollup",
-          },
-        ],
+        ]
       },
-
       process: {
-        title: "Proces projektowy",
-        paragraphs: [
-          "Projekt rozwijał się etapami. Początkowo zakres obejmował jedynie zaprojektowanie kart młodzieżowych, jednak w trakcie prac został rozszerzony o pełną identyfikację wizualną, materiały promocyjne oraz stronę internetową.",
-          "Podczas projektowania szukałam balansu między oficjalnym charakterem organizacji działającej przy samorządzie a bardziej otwartą komunikacją skierowaną do młodych osób. Testowałam różne kierunki wizualne, skupiając się głównie na motywie społeczności i współpracy.",
-          "Finalny znak powstał z połączenia dwóch sylwetek oraz litery „M”, dzięki czemu identyfikacja nawiązuje bezpośrednio do nazwy organizacji, ale nadal pozostaje prostym i rozpoznawalnym symbolem.",
+        title: "Założenia projektowe i proces",
+        blocks: [
+          {
+            type: "text",
+            paragraphs: [
+              "Projekt MNIAM powstał jako odpowiedź na codzienny problem związany z planowaniem posiłków, organizacją zakupów i kontrolowaniem produktów dostępnych w domu. Założeniem było stworzenie jednej aplikacji, która łączy te czynności w spójny i prosty proces.",
+
+              "Podczas projektowania szczególną uwagę poświęciłam ograniczeniu liczby czynności wymaganych od użytkownika. Lista zakupów jest generowana na podstawie zaplanowanych posiłków, a podczas ręcznego dodawania produktów użytkownik otrzymuje odpowiednie podpowiedzi. Po zakończeniu zakupów oznaczone produkty można również przenieść bezpośrednio do spiżarni, bez konieczności ponownego wprowadzania tych samych informacji.",
+
+              "Główny przepływ opiera się na naturalnym połączeniu kolejnych funkcji: od planowania posiłków i wyboru przepisów, przez przygotowanie listy zakupów, aż po aktualizację zawartości domowej spiżarni. Celem było stworzenie systemu, w którym poszczególne etapy wspierają się wzajemnie i ograniczają powtarzanie tych samych działań.",
+            ],
+          },
+          {
+            type: "image",
+            src: `${base}assets/project4/layout.webp`,
+            alt: "Makieta ekranów głównych aplikacji",
+            size: "large",
+          },
         ],
-        image: {
-          src: `${base}assets/project1/concept.webp`,
-          alt: "Wariacje logo",
-        },
       },
 
-      website: {
-        title: "Strona internetowa",
+      pantry: {
+        title: "Zarządzanie domową spiżarnią",
+        blocks: [
+          {
+            type: "text",
+            paragraphs: [
+              "Spiżarnia stanowi jeden z głównych elementów aplikacji i pozwala użytkownikowi kontrolować produkty dostępne w domu. Produkty zostały podzielone na podstawowe kategorie, co ułatwia ich przeglądanie i organizację.",
 
-        paragraphs: [
-          "Strona internetowa została zaprojektowana jako główny punkt komunikacji Młodzieżowej Rady Miejskiej oraz programu karty młodzieżowej. Najważniejszym założeniem było uporządkowanie informacji i ułatwienie użytkownikom przejścia przez proces uzyskania karty.",
+              "Podczas projektowania tego modułu skupiłam się na szybkim wykonywaniu podstawowych czynności. Użytkownik może w prosty sposób zmieniać ilość produktu, oznaczać go jako zużyty oraz aktualizować zawartość spiżarni bez przechodzenia przez rozbudowane formularze.",
 
-          "Warstwa wizualna została oparta na stworzonej wcześniej identyfikacji. Jasne tło, wyraziste kolory oraz modułowy układ pozwoliły zachować spójność z materiałami drukowanymi.",
-
-          "Projekt obejmuje stronę informacyjną organizacji, proces składania wniosku, instrukcję uzyskania karty, regulamin, kontakt oraz panel administracyjny umożliwiający zarządzanie zgłoszeniami, wyszukiwanie użytkowników i analizę podstawowych statystyk.",
+              "Interfejs wykorzystuje proste jednostki i intuicyjne kontrolki, dzięki czemu zarządzanie produktami nie wymaga dokładnego ręcznego uzupełniania każdej wartości. Ważne informacje, takie jak zbliżający się termin ważności, czy kończący sie produkt są odpowiednio wyróżnione, aby ułatwić ich zauważenie podczas codziennego korzystania z aplikacji.",
+            ],
+          },
         ],
+      },
 
-        image: {
-          src: `${base}assets/project1/laptop3.webp`,
-          alt: "Logowanie do panelu",
-        },
+      recipes: {
+        title: "Przepisy i planowanie posiłków",
+        blocks: [
+          {
+            type: "text",
+            paragraphs: [
+              "Moduł przepisów został zaprojektowany jako narzędzie wspierające codzienne planowanie posiłków. Użytkownik może przeglądać dostępne przepisy, zapisywać wybrane propozycje oraz dodawać je do własnego planu posiłków.",
+
+              "Przy projektowaniu kart przepisów ważna była czytelna hierarchia informacji. Najważniejsze dane, takie jak czas przygotowania, poziom trudności oraz lista składników, są dostępne w uporządkowanej formie. Składniki zostały również rozdzielone na produkty dostępne w spiżarni i te, które należy dodać do zakupów.",
+
+              "Wybrane posiłki tworzą podstawę do automatycznego przygotowania listy zakupowej. Dzięki połączeniu planowania, przepisów i spiżarni użytkownik nie musi samodzielnie analizować każdego przepisu i tworzyć listy brakujących produktów.",
+            ],
+          },
+        ],
+      },
+      development: {
+        title: "Rozwój projektu",
+
+        blocks: [
+          {
+            type: "text",
+            paragraphs: [
+              "MNIAM rozwijam równolegle od strony projektowej i technicznej. Etap Discovery & UX obejmował określenie głównych problemów, analizę istniejących rozwiązań, zaprojektowanie przepływów oraz przygotowanie kompletnego interfejsu i design systemu.",
+
+              "Obecnie projekt znajduje się na etapie implementacji front-endu. Główne widoki i funkcje aplikacji zostały już zaimplementowane w Vue 3 z wykorzystaniem Pinia, Vue Router, SCSS i Local Storage. Pozostało między innymi dopracowanie istniejących widoków oraz uzupełnienie onboardingu i logowania.",
+
+              "Kolejnym etapem będzie przygotowanie backendu i przeniesienie danych z lokalnego przechowywania do rozwiązania umożliwiającego obsługę kont użytkowników i synchronizację danych. Docelowo projekt przejdzie przez etap testów i przygotowania do publikacji."
+            ],
+          },
+          {
+            type: "image",
+            src: `${base}assets/project4/plan.png`,
+            alt: "Makieta ekranów głównych aplikacji",
+            size: "large",
+          },
+          {
+            type: "image",
+            src: `${base}assets/project4/mockup3.webp`,
+            alt: "Makiety aplikacji",
+            size: "large",
+          },
+        ],
+      },
+      uiShowcase: {
+        title: "Wybrane widoki interfejsu",
+        blocks: [
+          {
+            type: "text",
+            paragraphs: [
+              "Poniższe widoki prezentują wybrane elementy finalnego interfejsu oraz sposób zastosowania wcześniej określonych zasad wizualnych. Projekt opiera się na spójnej siatce, konsekwentnej typografii i powtarzalnych komponentach, dzięki czemu kolejne ekrany zachowują jednolity charakter.",
+
+              "Uwzględniono również stany wymagające dodatkowej komunikacji z użytkownikiem, takie jak onboarding, puste widoki oraz podstawowe ekrany związane z profilem i organizacją danych. Każdy z nich został zaprojektowany tak, aby jasno informować o aktualnym stanie aplikacji i wskazywać możliwe kolejne działania.",
+            ],
+          },
+          {
+            type: "image",
+            src: `${base}assets/project4/layout2.webp`,
+            alt: "Wybrane widoki",
+            size: "xl",
+          },
+        ],
       },
     },
   },
@@ -112,7 +173,7 @@ export const projects = [
         value: "UI Design, Responsive Web Design, Ikonografia",
       },
     ],
-    tags: ["ui"],
+    tags: ["app-window"],
     title: "Orkiestra dęta GOK w Kuryłówce",
 
     description:
@@ -249,6 +310,108 @@ export const projects = [
   {
     id: 3,
     meta: [
+      { label: "Data", value: "styczeń-luty 2025" },
+      {
+        label: "Zakres",
+        value: "identyfikacja wizualna, UI Design, materiały promocyjne",
+      },
+    ],
+    tags: ["app-window", "brush"],
+    title: "Młodzieżowa Rada Miejska w Aleksandrowie Łódzkim",
+
+    description:
+      "Projekt kompleksowej identyfikacji wizualnej dla Młodzieżowej Rady Miejskiej, obejmujący stworzenie spójnego języka wizualnego wykorzystywanego zarówno w materiałach drukowanych, jak i w przestrzeni cyfrowej.\n\nCelem było zaprojektowanie nowoczesnej i przystępnej komunikacji skierowanej do młodych odbiorców, zachowując jednocześnie charakter oficjalnej organizacji.",
+
+    image: `${base}assets/project1/info.webp`,
+    mockup: `${base}assets/project1/laptop2.webp`,
+
+    sections: {
+      visualIdentity: {
+        title: "Identyfikacja wizualna",
+
+        description:
+          "Finalny znak oparty został na połączeniu dwóch sylwetek symbolizujących współpracę i społeczność. Ich forma tworzy literę „M”, dzięki czemu logo nawiązuje bezpośrednio do nazwy organizacji.\n\nZaokrąglona konstrukcja pozwala zachować przyjazny charakter projektu, jednocześnie pozostając czytelna i odpowiednia dla oficjalnej organizacji.",
+
+        colors: [
+          { hex: "#F66055" },
+          { hex: "#59BAFF" },
+          { hex: "#FFCD43" },
+          { hex: "#F9F6F3" },
+        ],
+
+        components: `${base}assets/project1/components.webp`,
+
+        afterText:
+          "Kolorystyka została oparta na barwach miasta obecnych w herbie i fladze Aleksandrowa Łódzkiego. Dodatkowym elementem systemu zostały geometryczne wzory inspirowane lokalnym wzornictwem, wykorzystywane głównie na kartach młodzieżowych.\n\nTypografia łączy bardziej charakterystyczny font Anybody z prostym i czytelnym Work Sans, dzięki czemu identyfikacja zachowuje młodzieżowy charakter bez utraty profesjonalnego wyglądu.",
+
+        images: [],
+      },
+
+      printMaterials: {
+        title: "Materiały drukowane i promocyjne",
+
+        images: [
+          {
+            src: `${base}assets/project1/bento3.webp`,
+            alt: "Karty Młodzieżowe",
+          },
+          {
+            src: `${base}assets/project1/bento6.webp`,
+            alt: "Plakat",
+          },
+          {
+            src: `${base}assets/project1/bento1.webp`,
+            alt: "Wzór geometryczny",
+          },
+          {
+            src: `${base}assets/project1/bento5.webp`,
+            alt: "Ulotki",
+          },
+          {
+            src: `${base}assets/project1/bento2.webp`,
+            alt: "Karta Młodzieżowa",
+          },
+          {
+            src: `${base}assets/project1/bento4.webp`,
+            alt: "Rollup",
+          },
+        ],
+      },
+
+      process: {
+        title: "Proces projektowy",
+        paragraphs: [
+          "Projekt rozwijał się etapami. Początkowo zakres obejmował jedynie zaprojektowanie kart młodzieżowych, jednak w trakcie prac został rozszerzony o pełną identyfikację wizualną, materiały promocyjne oraz stronę internetową.",
+          "Podczas projektowania szukałam balansu między oficjalnym charakterem organizacji działającej przy samorządzie a bardziej otwartą komunikacją skierowaną do młodych osób. Testowałam różne kierunki wizualne, skupiając się głównie na motywie społeczności i współpracy.",
+          "Finalny znak powstał z połączenia dwóch sylwetek oraz litery „M”, dzięki czemu identyfikacja nawiązuje bezpośrednio do nazwy organizacji, ale nadal pozostaje prostym i rozpoznawalnym symbolem.",
+        ],
+        image: {
+          src: `${base}assets/project1/concept.webp`,
+          alt: "Wariacje logo",
+        },
+      },
+
+      website: {
+        title: "Strona internetowa",
+
+        paragraphs: [
+          "Strona internetowa została zaprojektowana jako główny punkt komunikacji Młodzieżowej Rady Miejskiej oraz programu karty młodzieżowej. Najważniejszym założeniem było uporządkowanie informacji i ułatwienie użytkownikom przejścia przez proces uzyskania karty.",
+
+          "Warstwa wizualna została oparta na stworzonej wcześniej identyfikacji. Jasne tło, wyraziste kolory oraz modułowy układ pozwoliły zachować spójność z materiałami drukowanymi.",
+
+          "Projekt obejmuje stronę informacyjną organizacji, proces składania wniosku, instrukcję uzyskania karty, regulamin, kontakt oraz panel administracyjny umożliwiający zarządzanie zgłoszeniami, wyszukiwanie użytkowników i analizę podstawowych statystyk.",
+        ],
+
+        image: {
+          src: `${base}assets/project1/laptop3.webp`,
+          alt: "Logowanie do panelu",
+        },
+      },
+    },
+  },
+  {
+    id: 4,
+    meta: [
       { label: "Data", value: "czerwiec – lipiec 2025" },
       {
         label: "Zakres",
@@ -259,7 +422,7 @@ export const projects = [
         value: "https://github.com/astrea444/admin-panel",
       },
     ],
-    tags: ["ui", "code"],
+    tags: ["app-window", "code-xml"],
     title: "Dashboard Administracyjny",
     description:
       "Interfejs administracyjny do monitorowania aktywności serwera, zarządzania użytkownikami oraz kontroli systemu uprawnień. Projekt został zaprojektowany jako nowoczesna aplikacja SPA z ciemnym interfejsem, przejrzystą strukturą informacji i naciskiem na wygodną obsługę dużej ilości danych.",
@@ -385,142 +548,6 @@ export const projects = [
         { icon: "material-icon-theme:vitest", label: "Vitest" },
         { icon: "material-icon-theme:vue", label: "Vue Router" },
       ],
-    },
-  },
-  {
-    id: 4,
-    meta: [
-      { label: "Data", value: "lipiec–sierpień 2026" },
-      {
-        label: "Zakres",
-        value: "identyfikacja wizualna, UI/UX Design, frontend (w toku)",
-      },
-    ],
-    tags: ["ui", "graphic", "code"],
-    title: "Aplikacja mobilna MNIAM",
-
-    description:
-      "MNIAM to aplikacja mobilna wspierająca planowanie posiłków i organizację codziennych zakupów. Umożliwia tworzenie planów posiłków, zapisywanie przepisów, zarządzanie domową spiżarnią oraz automatyczne przygotowywanie list zakupowych w jednym miejscu.",
-
-    image: `${base}assets/project4/info.webp`,
-    mockup: `${base}assets/project4/mockup2.webp`,
-
-    sections: {
-      visualIdentity: {
-        title: "Kierunek wizualny i system interfejsu",
-
-        description:
-          "Kierunek wizualny został oparty na prostych, miękkich formach i kolorystyce nawiązującej do świeżości oraz produktów spożywczych. Główną rolę pełni zieleń, uzupełniona jasnym tłem i ciemnym granatem, który zapewnia odpowiedni kontrast dla najważniejszych treści.",
-
-        colors: [
-          { hex: "#16233B" },
-          { hex: "#78CA7A" },
-          { hex: "#64BE5B" },
-          { hex: "#F2F4F7" },
-        ],
-
-        components: `${base}assets/project4/components.webp`,
-
-        afterText:
-          "Interfejs został zaprojektowany z wykorzystaniem spójnego zestawu komponentów, typografii i zasad dotyczących odstępów. Miękkie zaokrąglenia oraz subtelne cienie nadają całości lekki charakter, jednocześnie zachowując czytelną strukturę informacji. Typografia została dostosowana do różnych rozmiarów ekranów, aby zapewnić komfortowe korzystanie z aplikacji.",
-
-        images: [],
-      },
-
-      process: {
-        title: "Założenia projektowe i proces",
-        blocks: [
-          {
-            type: "text",
-            paragraphs: [
-              "Projekt MNIAM powstał jako odpowiedź na codzienny problem związany z planowaniem posiłków, organizacją zakupów i kontrolowaniem produktów dostępnych w domu. Założeniem było stworzenie jednej aplikacji, która łączy te czynności w spójny i prosty proces.",
-
-              "Podczas projektowania szczególną uwagę poświęciłam ograniczeniu liczby czynności wymaganych od użytkownika. Lista zakupów jest generowana na podstawie zaplanowanych posiłków, a podczas ręcznego dodawania produktów użytkownik otrzymuje odpowiednie podpowiedzi. Po zakończeniu zakupów oznaczone produkty można również przenieść bezpośrednio do spiżarni, bez konieczności ponownego wprowadzania tych samych informacji.",
-
-              "Główny przepływ opiera się na naturalnym połączeniu kolejnych funkcji: od planowania posiłków i wyboru przepisów, przez przygotowanie listy zakupów, aż po aktualizację zawartości domowej spiżarni. Celem było stworzenie systemu, w którym poszczególne etapy wspierają się wzajemnie i ograniczają powtarzanie tych samych działań.",
-            ],
-          },
-          {
-            type: "image",
-            src: `${base}assets/project4/layout.webp`,
-            alt: "Makieta ekranów głównych aplikacji",
-            size: "large",
-          },
-        ],
-      },
-
-      pantry: {
-        title: "Zarządzanie domową spiżarnią",
-        blocks: [
-          {
-            type: "text",
-            paragraphs: [
-              "Spiżarnia stanowi jeden z głównych elementów aplikacji i pozwala użytkownikowi kontrolować produkty dostępne w domu. Produkty zostały podzielone na podstawowe kategorie, co ułatwia ich przeglądanie i organizację.",
-
-              "Podczas projektowania tego modułu skupiłam się na szybkim wykonywaniu podstawowych czynności. Użytkownik może w prosty sposób zmieniać ilość produktu, oznaczać go jako zużyty oraz aktualizować zawartość spiżarni bez przechodzenia przez rozbudowane formularze.",
-
-              "Interfejs wykorzystuje proste jednostki i intuicyjne kontrolki, dzięki czemu zarządzanie produktami nie wymaga dokładnego ręcznego uzupełniania każdej wartości. Ważne informacje, takie jak zbliżający się termin ważności, czy kończący sie produkt są odpowiednio wyróżnione, aby ułatwić ich zauważenie podczas codziennego korzystania z aplikacji.",
-            ],
-          },
-        ],
-      },
-
-      recipes: {
-        title: "Przepisy i planowanie posiłków",
-        blocks: [
-          {
-            type: "text",
-            paragraphs: [
-              "Moduł przepisów został zaprojektowany jako narzędzie wspierające codzienne planowanie posiłków. Użytkownik może przeglądać dostępne przepisy, zapisywać wybrane propozycje oraz dodawać je do własnego planu posiłków.",
-
-              "Przy projektowaniu kart przepisów ważna była czytelna hierarchia informacji. Najważniejsze dane, takie jak czas przygotowania, poziom trudności oraz lista składników, są dostępne w uporządkowanej formie. Składniki zostały również rozdzielone na produkty dostępne w spiżarni i te, które należy dodać do zakupów.",
-
-              "Wybrane posiłki tworzą podstawę do automatycznego przygotowania listy zakupowej. Dzięki połączeniu planowania, przepisów i spiżarni użytkownik nie musi samodzielnie analizować każdego przepisu i tworzyć listy brakujących produktów.",
-            ],
-          },
-        ],
-      },
-      development: {
-        title: "Rozwój projektu",
-
-        blocks: [
-          {
-            type: "text",
-            paragraphs: [
-              "MNIAM jest projektem rozwijanym zarówno pod względem projektowym, jak i technicznym. Oprócz przygotowania warstwy UI/UX pracuję również nad implementacją front-endu, który obecnie jest zrealizowany w około 70%.",
-
-              "Przed zakończeniem projektu planuję dopracować część istniejących widoków oraz uzupełnić brakujące elementy aplikacji, w tym proces onboardingu i logowania. Pozostałe szczegóły interfejsu będą rozwijane i dostosowywane wraz z kolejnymi etapami implementacji.",
-
-              "Docelowym założeniem jest stworzenie w pełni działającej aplikacji, w której zaprojektowane funkcje będą połączone z kompletną warstwą front-endową. Po zakończeniu obecnego etapu projekt będzie dalej rozwijany o kolejne rozwiązania związane z planowaniem posiłków, zarządzaniem produktami i organizacją codziennych zakupów.",
-            ],
-          },
-          {
-            type: "image",
-            src: `${base}assets/project4/mockup3.webp`,
-            alt: "Makiety aplikacji",
-            size: "large",
-          },
-        ],
-      },
-      uiShowcase: {
-        title: "Wybrane widoki interfejsu",
-        blocks: [
-          {
-            type: "text",
-            paragraphs: [
-              "Poniższe widoki prezentują wybrane elementy finalnego interfejsu oraz sposób zastosowania wcześniej określonych zasad wizualnych. Projekt opiera się na spójnej siatce, konsekwentnej typografii i powtarzalnych komponentach, dzięki czemu kolejne ekrany zachowują jednolity charakter.",
-
-              "Uwzględniono również stany wymagające dodatkowej komunikacji z użytkownikiem, takie jak onboarding, puste widoki oraz podstawowe ekrany związane z profilem i organizacją danych. Każdy z nich został zaprojektowany tak, aby jasno informować o aktualnym stanie aplikacji i wskazywać możliwe kolejne działania.",
-            ],
-          },
-          {
-            type: "image",
-            src: `${base}assets/project4/layout2.webp`,
-            alt: "Wybrane widoki",
-            size: "xl",
-          },
-        ],
-      },
     },
   },
 ];

@@ -59,9 +59,14 @@ html {
   display: none;
 }
 
+#app{
+  width: 100vw;
+  height: 100vh;
+}
+
 body {
   background-color: $c-bg;
-  background-image: radial-gradient(circle, #c7cbd1 1px, transparent 1px);
+  background-image: radial-gradient(circle, #cdd1d8 1px, transparent 1px);
   background-size: 1.5rem 1.5rem;
   color: $c-fg;
   font-family: 'Poppins', sans-serif;

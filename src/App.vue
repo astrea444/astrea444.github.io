@@ -24,6 +24,7 @@ import ImageLightbox from './components/ImageLightbox.vue'
   max-width: $container-w;
   margin-inline: auto;
   padding-inline: $s-12;
+  min-height: 65%;
 
   @include respond-max(mobile) {
     padding-inline: $s-3;

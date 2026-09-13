@@ -81,7 +81,7 @@ const decorItems = [
   pointer-events: none;
   container-type: inline-size;
 
-  @include respond-max(tablet) {
+  @include respond-max(sm) {
     display: none;
   }
 }
@@ -266,17 +266,20 @@ const decorItems = [
   margin: 7rem auto 2rem;
 
   @include respond-max(xs) {
-    gap: $s-3 !important;
+    gap: $s-6;
   }
 
   @include respond-max(mobile) {
     gap: $s-3;
-    margin: 5rem auto 2rem;
+  }
+
+  @include respond(mobile) {
+    gap: $s-3;
   }
 
   @include respond(tablet) {
     gap: $s-12;
-    margin: 7rem auto 2.5rem;
+    margin: 3rem auto 2.5rem;
   }
 
   @include respond(sm) {
@@ -285,7 +288,7 @@ const decorItems = [
     width: 90%;
     flex-wrap: wrap;
     gap: 0;
-    margin: 8rem auto 5rem;
+    margin: 3rem auto 5rem;
   }
 }
 
@@ -324,7 +327,7 @@ const decorItems = [
   letter-spacing: 0.04em;
 
   @include respond-max(xs) {
-    font-size: $fs-sm !important;
+    font-size: $fs-xs !important;
   }
 
   @include respond-max(mobile) {
@@ -356,7 +359,7 @@ const decorItems = [
 .hero-about {
   position: relative;
   z-index: 1;
-  margin-top: $s-12;
+  margin-top: 8rem;
 }
 
 .bar {
@@ -367,11 +370,10 @@ const decorItems = [
   gap: $s-5;
   padding: $s-3;
   max-width: 100%;
+  width: 100%;
 
   @include respond-max(sm) {
-    max-width: 80%;
-    padding: $s-6 0;
-    margin: 0 auto;
+    padding: $s-2 $s-3;
   }
 
   p {

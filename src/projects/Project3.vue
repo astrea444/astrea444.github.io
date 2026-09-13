@@ -1,76 +1,53 @@
 <template>
     <article v-if="project" class="project">
         <h1 class="project-title" v-reveal>{{ project.title }}</h1>
-
         <InfoSection :meta="project.meta" :title="project.title" :description="project.description"
             :image="project.image" :image-alt="project.imageAlt" />
-
-        <section v-if="s?.techStack" class="techstack-section" v-reveal>
-            <h2 class="section-title">{{ s.techStack.title }}</h2>
-            <PillGrid :items="s.techStack.stack" />
-        </section>
 
         <VisualSection :title="s?.visualIdentity?.title" :description="s?.visualIdentity?.description"
             :colors="s?.visualIdentity?.colors" :after-text="s?.visualIdentity?.afterText"
             :images="s?.visualIdentity?.images" :components="s?.visualIdentity.components" />
 
-
-        <ParagraphSection v-if="s?.project" :title="s.project.title" :blocks="[
+        <ParagraphSection v-if="s?.process" :title="s.process.title" :blocks="[
             {
                 type: 'text',
-                paragraphs: s.project.paragraphs
+                paragraphs: s.process.paragraphs
             },
             {
                 type: 'image',
-                src: s.project.image.src,
-                alt: s.project.image.alt,
+                src: s.process.image.src,
+                alt: s.process.image.alt,
                 size: 'large'
             }
         ]" />
 
-        <ParagraphSection v-if="s?.interfaceDesign" :title="s.interfaceDesign.title" :blocks="[
+        <ParagraphSection v-if="s?.printMaterials" :title="s.printMaterials.title" :blocks="[
             {
-                type: 'text',
-                paragraphs: s.interfaceDesign.paragraphs
-            },
-            {
-                type: 'gallery',
-                groups: s.interfaceDesign.groups
+                type: 'bento',
+                images: s.printMaterials.images
             }
         ]" />
-        <section class="flow" v-reveal>
-            <h2 class="section-title">Architektura aplikacji</h2>
 
-            <p class="paragraph">
-                Przepływ danych został przygotowany w oparciu o warstwową strukturę aplikacji,
-                dzięki czemu poszczególne elementy pozostają od siebie niezależne i łatwiejsze
-                w dalszym rozwijaniu.
-            </p>
+        <ParagraphSection v-if="s?.website" :title="s.website.title" :blocks="[
+            {
+                type: 'text',
+                paragraphs: s.website.paragraphs
+            },
+            {
+                type: 'image',
+                src: s.website.image.src,
+                alt: s.website.image.alt,
+                size: 'large'
+            }
+        ]" />
 
-            <div class="structure">
-                <template v-for="(item, index) in flow" :key="item">
-                    <div class="badge">{{ item }}</div>
 
-                    <Icon v-if="index < flow.length - 1" icon="lucide:arrow-right" class="arrow" width="22"
-                        height="22" />
-                </template>
+        <div class="showcase" v-reveal>
+            <div class="showcase-container">
+                <img v-for="(img, i) in showcaseImages" :key="img.src" :src="img.src" :alt="img.alt" class="clickable"
+                    @click="open(showcaseImages, i)" />
             </div>
-        </section>
-
-        <ParagraphSection v-if="s?.implementation" :title="s.implementation.title" :blocks="[
-            {
-                type: 'text',
-                paragraphs: s.implementation.paragraphs
-            },
-            {
-                type: 'image',
-                src: s.implementation.image.src,
-                alt: s.implementation.image.alt,
-                size: 'large'
-            }
-        ]" />
-
-
+        </div>
         <NextProject :current-id="3" />
     </article>
 
@@ -79,56 +56,82 @@
 <script setup>
 import { computed } from 'vue'
 import { projects } from '@/data/projects.js'
-import { Icon } from '@iconify/vue'
 import InfoSection from '@/projects/sections/InfoSection.vue'
-import ParagraphSection from '@/projects/sections/ParagraphSection.vue'
 import VisualSection from '@/projects/sections/VisualSection.vue'
-import PillGrid from '@/components/PillGrid.vue'
 import NextProject from '@/components/NextProject.vue'
+import ParagraphSection from '@/projects/sections/ParagraphSection.vue'
+import { useLightbox } from '@/composables/useLightbox'
+
+const { open } = useLightbox()
 
 const project = computed(() => projects.find(p => p.id === 3))
 const s = computed(() => project.value?.sections)
 
-const flow = ["MockData", "API Layer", "Store", "Views", "Components"]
+const base = import.meta.env.BASE_URL
+
+const showcaseImages = [
+    { src: `${base}assets/project1/home1.webp`, alt: "Strona główna" },
+    { src: `${base}assets/project1/home2.webp`, alt: "Strona główna" },
+    { src: `${base}assets/project1/admin.webp`, alt: "Panel Administracyjny" },
+]
 </script>
 
-<style scoped lang="scss">
-.techstack-section {
-    margin: 3rem 0 0;
-    padding: 0 !important;
-    width: 100%;
-}
-
-.flow {
-    margin: 8rem 0 3rem;
-    padding: 0 !important;
-    width: 100%;
-
-    .structure {
+<style lang="scss" scoped>
+.project {
+    .showcase {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        flex-wrap: wrap;
-        gap: 2rem;
-        margin-top: 1rem;
-    }
+        justify-content: center;
+        gap: $s-12;
+        margin: 0 auto;
+        padding: 12rem 0 0;
+        width: 100%;
 
-    .badge {
-        @include main-shadow($color: $c-accent);
-        display: inline-block;
-        background: $c-bg;
-        border: $border-w solid $c-border;
-        border-radius: $radius-pill;
-        padding: $s-3 22px;
-        font-weight: 500;
-        font-size: $fs-lg;
-        letter-spacing: 0.04em;
-    }
+        @include respond-max(tablet) {
+            padding: 6rem 0 0;
+        }
 
-    .arrow {
-        height: $fs-xl;
-        width: $fs-xl;
-        flex-shrink: 0;
-        margin-left: $s-2;
+
+        .showcase-container {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 0;
+            margin: 0 auto;
+            width: 100%;
+
+        }
+
+        h2 {
+            text-align: center;
+            width: 100%;
+        }
+
+        img {
+            width: clamp(20rem, 25vw, 60rem);
+            border-radius: $s-4;
+            height: auto;
+            object-fit: contain;
+            border: $border-w solid #cfd2d8;
+            filter: drop-shadow(0 8px 5px rgba(0, 0, 0, 0.1));
+            transition: transform 0.4s $ease, box-shadow 0.4s $ease;
+            cursor: pointer;
+
+            @include respond-max(tablet) {
+                width: 45%;
+            }
+
+            &:hover {
+                transform: translateY(-2px);
+            }
+
+            &:nth-child(2) {
+                margin: 3rem -3rem 0;
+                z-index: 99;
+            }
+        }
     }
 }
 </style>
