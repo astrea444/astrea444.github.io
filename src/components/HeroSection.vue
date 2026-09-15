@@ -1,12 +1,12 @@
 <script setup>
 import PortfolioText from './PortfolioText.vue'
-import hero1 from '/assets/hero/hero_1.png'
-import hero2 from '/assets/hero/hero_2.png'
-import hero3 from '/assets/hero/hero_3.png'
-import hero4 from '/assets/hero/hero_4.png'
-import hero5 from '/assets/hero/hero_5.png'
-import hero6 from '/assets/hero/hero_6.png'
-import hero7 from '/assets/hero/hero_7.png'
+import hero1 from '/assets/hero/hero_1.webp'
+import hero2 from '/assets/hero/hero_2.webp'
+import hero3 from '/assets/hero/hero_3.webp'
+import hero4 from '/assets/hero/hero_4.webp'
+import hero5 from '/assets/hero/hero_5.webp'
+import hero6 from '/assets/hero/hero_6.webp'
+import hero7 from '/assets/hero/hero_7.webp'
 
 const badges = ['Graphic Design', 'UI/UX Design', 'Frontend Dev']
 const decorItems = [
@@ -24,7 +24,8 @@ const decorItems = [
   <section class="hero">
     <div class="hero-decor" aria-hidden="true">
       <div v-for="item in decorItems" :key="item.cls" class="decor" :class="item.cls">
-        <img :src="item.src" alt="" class="decor-img" v-reveal :style="{ transitionDelay: `${item.delay}s` }" />
+        <img :src="item.src" alt="" class="decor-img" v-reveal :style="{ transitionDelay: `${item.delay}s` }"
+          draggable="false" />
       </div>
     </div>
 
@@ -80,6 +81,7 @@ const decorItems = [
   inset: 1rem -18rem;
   z-index: 0;
   pointer-events: none;
+  user-select: none;
   container-type: inline-size;
 
   @include respond-max(sm) {
@@ -231,6 +233,7 @@ const decorItems = [
   position: relative;
   z-index: 1;
   text-align: center;
+  user-select: none;
 }
 
 .hero-kicker {
@@ -326,6 +329,10 @@ const decorItems = [
   width: fit-content;
   font-size: $fs-sm;
   letter-spacing: 0.04em;
+
+  &:hover {
+    transition: transform 0.5s $ease, box-shadow 0.3s $ease !important;
+  }
 
   @include respond-max(xs) {
     font-size: $fs-xs !important;

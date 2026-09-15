@@ -157,10 +157,6 @@ import { experience, education, technologies, tools } from '../data/profile'
     transition: transform 0.4s $ease, box-shadow 0.4s $ease;
     margin-bottom: $s-4;
 
-    &:hover {
-      transform: translateY(-2px);
-    }
-
     &:last-child {
       margin-bottom: 0;
     }

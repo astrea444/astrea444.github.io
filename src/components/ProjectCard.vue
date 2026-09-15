@@ -10,7 +10,7 @@ defineProps({
   <RouterLink :to="`/projekty/${project.id}`" class="project-card" :class="{ reversed: index % 2 === 1 }" v-reveal>
     <div class="project-body">
       <div class="project-visual">
-        <img :src="project.mockup" class="image" :alt="project.title" />
+        <img :src="project.mockup" class="image" :alt="project.title" loading="lazy" draggable="false" />
         <div class="tag-row">
           <span v-for="tag in project.tags" :key="tag" class="tag">
             <Icon :icon="`lucide:${tag}`" height="24" width="24" />

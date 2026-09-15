@@ -13,7 +13,7 @@
     </div>
 
     <div v-if="components" class="components">
-      <img :src="components" alt="Design System" class="clickable" @click="open(components, 'Design System')" />
+      <img :src="components" alt="Design System" draggable="false" />
     </div>
 
     <div v-if="afterText" class="after-text">
@@ -22,7 +22,7 @@
 
     <div v-if="images.length" class="images">
       <img v-for="(img, idx) in images" :key="img.src" :src="img.src" :alt="img.alt || title" class="clickable"
-        @click="open(images, idx)" />
+       draggable="false" @click="open(images, idx)" />
     </div>
   </section>
 </template>

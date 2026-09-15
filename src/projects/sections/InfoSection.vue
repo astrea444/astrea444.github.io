@@ -17,7 +17,7 @@
     <p v-else-if="description" class="description">{{ description }}</p>
 
     <div v-if="image" class="media">
-      <img :src="image" :alt="imageAlt || title" class="image clickable" @click="open(image, imageAlt || title)" />
+      <img :src="image" :alt="imageAlt || title" class="image" draggable="false" />
     </div>
   </section>
 </template>

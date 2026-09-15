@@ -16,6 +16,7 @@
             {
                 type: 'image',
                 src: s.process.image.src,
+                full: s.process.image.full,
                 alt: s.process.image.alt,
                 size: 'large'
             }
@@ -36,6 +37,7 @@
             {
                 type: 'image',
                 src: s.website.image.src,
+                full: s.website.image.full,
                 alt: s.website.image.alt,
                 size: 'large'
             }
@@ -45,6 +47,7 @@
         <div class="showcase" v-reveal>
             <div class="showcase-container">
                 <img v-for="(img, i) in showcaseImages" :key="img.src" :src="img.src" :alt="img.alt" class="clickable"
+                    loading="lazy" draggable="false"
                     @click="open(showcaseImages, i)" />
             </div>
         </div>

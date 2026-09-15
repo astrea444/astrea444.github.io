@@ -16,6 +16,7 @@
             {
                 type: 'image',
                 src: s.process.image.src,
+                full: s.process.image.full,
                 alt: s.process.image.alt,
                 size: 'large'
             }
@@ -32,12 +33,14 @@
             {
                 type: 'image',
                 src: s.desktop.image.src,
+                full: s.desktop.image.full,
                 alt: s.desktop.image.alt,
                 size: 'large'
             }
         ]" />
         <div class="desktop_showcase" v-reveal>
-            <img :src="`${base}assets/project2/home.webp`" alt="Desktop Showcase" class="clickable"
+            <img :src="`${base}assets/project2/home.webp`" alt="Desktop Showcase" class="clickable" loading="lazy"
+                draggable="false"
                 @click="open(`${base}assets/project2/home.webp`, 'Desktop Showcase')" />
         </div>
         <ParagraphSection v-if="s?.mobile" :title="s.mobile.title" :blocks="[
@@ -48,6 +51,7 @@
             {
                 type: 'image',
                 src: s.mobile.image.src,
+                full: s.mobile.image.full,
                 alt: s.mobile.image.alt,
                 size: 'large'
             }

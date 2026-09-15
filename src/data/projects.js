@@ -4,7 +4,7 @@ export const projects = [
   {
     id: 1,
     meta: [
-      { label: "Data", value: "lipiec–sierpień 2026" },
+      { label: "Data", value: "lipiec–wrzesień 2026" },
       {
         label: "Zakres",
         value: "identyfikacja wizualna, UI/UX Design, frontend (w toku)",
@@ -17,7 +17,7 @@ export const projects = [
       "MNIAM to aplikacja mobilna wspierająca planowanie posiłków i organizację codziennych zakupów. Umożliwia tworzenie planów posiłków, zapisywanie przepisów, zarządzanie domową spiżarnią oraz automatyczne przygotowywanie list zakupowych w jednym miejscu.",
 
     image: `${base}assets/project4/info.webp`,
-    mockup: `${base}assets/project4/mockup2.webp`,
+    mockup: `${base}assets/previews/preview_mniam.webp`,
 
     sections: {
       visualIdentity: {
@@ -56,7 +56,8 @@ export const projects = [
           },
           {
             type: "image",
-            src: `${base}assets/project4/problem.png`,
+            src: `${base}assets/project4/problem.webp`,
+            full: `${base}assets/project4/problem.webp`,
             alt: "Problem - Rozwiązanie - Rezultat",
             size: "large",
           },
@@ -78,6 +79,7 @@ export const projects = [
           {
             type: "image",
             src: `${base}assets/project4/layout.webp`,
+            full: `${base}assets/project4/layout.webp`,
             alt: "Makieta ekranów głównych aplikacji",
             size: "large",
           },
@@ -131,14 +133,16 @@ export const projects = [
           },
           {
             type: "image",
-            src: `${base}assets/project4/plan.png`,
-            alt: "Makieta ekranów głównych aplikacji",
+            src: `${base}assets/project4/plan.webp`,
+            full: `${base}assets/project4/plan-big.webp`,
+            alt: "Roadmap projektu",
             size: "large",
           },
           {
             type: "image",
-            src: `${base}assets/project4/mockup3.webp`,
-            alt: "Makiety aplikacji",
+            src: `${base}assets/project4/mockup.webp`,
+            full: `${base}assets/project4/mockup-big.webp`,
+            alt: "Makiety onboardingu aplikacji",
             size: "large",
           },
         ],
@@ -157,6 +161,7 @@ export const projects = [
           {
             type: "image",
             src: `${base}assets/project4/layout2.webp`,
+            full: `${base}assets/project4/layout2-big.webp`,
             alt: "Wybrane widoki",
             size: "xl",
           },
@@ -180,7 +185,7 @@ export const projects = [
       "Projekt strony internetowej dla Orkiestry Dętej GOK w Kuryłówce, której celem było stworzenie przejrzystego i nowoczesnego serwisu prezentującego działalność zespołu, jego historię oraz aktualne wydarzenia.\n\nProjekt został zaprojektowany tak, aby połączyć elegancki charakter orkiestry z prostą i wygodną strukturą informacji dostępną zarówno na komputerze, jak i urządzeniach mobilnych.",
 
     image: `${base}assets/project2/info.webp`,
-    mockup: `${base}assets/project2/main.webp`,
+    mockup: `${base}assets/previews/preview_orkiestra.webp`,
 
     sections: {
       visualIdentity: {
@@ -217,6 +222,7 @@ export const projects = [
 
         image: {
           src: `${base}assets/project2/tablet.webp`,
+          full: `${base}assets/project2/tablet-big.webp`,
           alt: "Makieta strony na tablecie",
         },
       },
@@ -235,42 +241,52 @@ export const projects = [
         images: [
           {
             src: `${base}assets/project2/icon1.webp`,
+            full: `${base}assets/project2/icon1.webp`,
             alt: "Ikona fletu",
           },
           {
             src: `${base}assets/project2/icon2.webp`,
+            full: `${base}assets/project2/icon2.webp`,
             alt: "Ikona talerzy",
           },
           {
             src: `${base}assets/project2/icon3.webp`,
+            full: `${base}assets/project2/icon3.webp`,
             alt: "Ikona bębna",
           },
           {
             src: `${base}assets/project2/icon4.webp`,
+            full: `${base}assets/project2/icon4.webp`,
             alt: "Ikona trąbki",
           },
           {
             src: `${base}assets/project2/icon5.webp`,
+            full: `${base}assets/project2/icon5.webp`,
             alt: "Ikona werbla",
           },
           {
             src: `${base}assets/project2/icon6.webp`,
+            full: `${base}assets/project2/icon6.webp`,
             alt: "Ikona puzonu",
           },
           {
             src: `${base}assets/project2/icon7.webp`,
+            full: `${base}assets/project2/icon7.webp`,
             alt: "Ikona tuby",
           },
           {
             src: `${base}assets/project2/icon8.webp`,
+            full: `${base}assets/project2/icon8.webp`,
             alt: "Ikona saksofonu",
           },
           {
             src: `${base}assets/project2/icon9.webp`,
+            full: `${base}assets/project2/icon9.webp`,
             alt: "Ikona klarnetu",
           },
           {
             src: `${base}assets/project2/icon10.webp`,
+            full: `${base}assets/project2/icon10.webp`,
             alt: "Ikona rąk dyrygenta",
           },
         ],
@@ -287,6 +303,7 @@ export const projects = [
 
         image: {
           src: `${base}assets/project2/mockup.webp`,
+          full: `${base}assets/project2/mockup.webp`,
           alt: "Makiety strony",
         },
       },
@@ -302,6 +319,7 @@ export const projects = [
 
         image: {
           src: `${base}assets/project2/mobile.webp`,
+          full: `${base}assets/project2/mobile.webp`,
           alt: "Wersja mobilna strony",
         },
       },
@@ -323,7 +341,7 @@ export const projects = [
       "Projekt kompleksowej identyfikacji wizualnej dla Młodzieżowej Rady Miejskiej, obejmujący stworzenie spójnego języka wizualnego wykorzystywanego zarówno w materiałach drukowanych, jak i w przestrzeni cyfrowej.\n\nCelem było zaprojektowanie nowoczesnej i przystępnej komunikacji skierowanej do młodych odbiorców, zachowując jednocześnie charakter oficjalnej organizacji.",
 
     image: `${base}assets/project1/info.webp`,
-    mockup: `${base}assets/project1/laptop2.webp`,
+    mockup: `${base}assets/previews/preview_mrm.webp`,
 
     sections: {
       visualIdentity: {
@@ -353,27 +371,33 @@ export const projects = [
         images: [
           {
             src: `${base}assets/project1/bento3.webp`,
-            alt: "Karty Młodzieżowe",
+            full: `${base}assets/project1/bento3-big.webp`,
+            alt: "Wariant Karty Młodzieżowej",
           },
           {
             src: `${base}assets/project1/bento6.webp`,
-            alt: "Plakat",
+            full: `${base}assets/project1/bento6-big.webp`,
+            alt: "Banner rolowany",
           },
           {
             src: `${base}assets/project1/bento1.webp`,
-            alt: "Wzór geometryczny",
+            full: `${base}assets/project1/bento1-big.webp`,
+            alt: "Karty Młodzieżowe",
           },
           {
             src: `${base}assets/project1/bento5.webp`,
-            alt: "Ulotki",
+            full: `${base}assets/project1/bento5-big.webp`,
+            alt: "Plakaty, zaproszenia, notes, pin i długopis",
           },
           {
             src: `${base}assets/project1/bento2.webp`,
-            alt: "Karta Młodzieżowa",
+            full: `${base}assets/project1/bento2-big.webp`,
+            alt: 'Naklejka "Tu honorujemy..."',
           },
           {
             src: `${base}assets/project1/bento4.webp`,
-            alt: "Rollup",
+            full: `${base}assets/project1/bento4-big.webp`,
+            alt: "Zeszyty",
           },
         ],
       },
@@ -387,6 +411,7 @@ export const projects = [
         ],
         image: {
           src: `${base}assets/project1/concept.webp`,
+          full: `${base}assets/project1/concept-big.webp`,
           alt: "Wariacje logo",
         },
       },
@@ -403,7 +428,8 @@ export const projects = [
         ],
 
         image: {
-          src: `${base}assets/project1/laptop3.webp`,
+          src: `${base}assets/project1/laptop.webp`,
+          full: `${base}assets/project1/laptop-big.webp`,
           alt: "Logowanie do panelu",
         },
       },
@@ -427,7 +453,7 @@ export const projects = [
     description:
       "Interfejs administracyjny do monitorowania aktywności serwera, zarządzania użytkownikami oraz kontroli systemu uprawnień. Projekt został zaprojektowany jako nowoczesna aplikacja SPA z ciemnym interfejsem, przejrzystą strukturą informacji i naciskiem na wygodną obsługę dużej ilości danych.",
     image: `${base}assets/project3/info.webp`,
-    mockup: `${base}assets/project3/mockup.webp`,
+    mockup: `${base}assets/previews/preview_admin.webp`,
 
     sections: {
       project: {
@@ -443,6 +469,7 @@ export const projects = [
 
         image: {
           src: `${base}assets/project3/mockup.webp`,
+          full: `${base}assets/project3/mockup.webp`,
           alt: "Makieta panelu administracyjnego",
         },
       },
@@ -484,10 +511,12 @@ export const projects = [
             images: [
               {
                 src: `${base}assets/project3/logs1.webp`,
+                full: `${base}assets/project3/logs1.webp`,
                 alt: "Logowanie",
               },
               {
                 src: `${base}assets/project3/logs2.webp`,
+                full: `${base}assets/project3/logs2.webp`,
                 alt: "Strona główna",
               },
             ],
@@ -497,10 +526,12 @@ export const projects = [
             images: [
               {
                 src: `${base}assets/project3/logs3.webp`,
+                full: `${base}assets/project3/logs3.webp`,
                 alt: "Logi w widoku siatki",
               },
               {
                 src: `${base}assets/project3/logs4.webp`,
+                full: `${base}assets/project3/logs4.webp`,
                 alt: "Logi w widoku listy",
               },
             ],
@@ -510,10 +541,12 @@ export const projects = [
             images: [
               {
                 src: `${base}assets/project3/logs5.webp`,
+                full: `${base}assets/project3/logs5.webp`,
                 alt: "Lista użytkowników",
               },
               {
                 src: `${base}assets/project3/logs6.webp`,
+                full: `${base}assets/project3/logs6.webp`,
                 alt: "Zarządzanie permisjami",
               },
             ],
@@ -533,6 +566,7 @@ export const projects = [
 
         image: {
           src: `${base}assets/project3/laptop.webp`,
+          full: `${base}assets/project3/laptop.webp`,
           alt: "Strona logowania",
         },
       },

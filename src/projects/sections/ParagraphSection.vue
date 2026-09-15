@@ -10,15 +10,15 @@
           </p>
         </div>
 
-        <img v-else-if="block.type === 'image'" :src="block.src" :alt="block.alt || title"
-          :class="[block.size || 'full', 'clickable']" @click="open(block.src, block.alt || title)" />
+        <img v-else-if="block.type === 'image'" :src="block.src" :alt="block.alt || title" draggable="false"
+          :class="[block.size || 'full', 'clickable']" @click="open(block.full || block.src, block.alt || title)" />
 
         <div v-else-if="block.type === 'gallery'" class="gallery">
           <div v-for="(group, gIndex) in getGalleryGroups(block)" :key="gIndex" class="gallery-group"
             :class="{ 'gallery-group--featured': group.featured }">
             <div class="gallery-images">
               <img v-for="(img, iIndex) in group.images" :key="iIndex" :src="img.src" :alt="img.alt || title"
-                class="clickable" @click="open(group.images, iIndex)" />
+                draggable="false" class="clickable" @click="open(toFullImages(group.images), iIndex)" />
             </div>
             <p class="paragraph caption" v-if="group.caption">{{ group.caption }}</p>
           </div>
@@ -26,13 +26,15 @@
 
         <div v-else-if="block.type === 'row'" class="row-gallery">
           <div class="row-item" v-for="(img, iIndex) in block.images" :key="iIndex">
-            <img :src="img.src" :alt="img.alt || title" class="clickable" @click="open(block.images, iIndex)" />
+            <img :src="img.src" :alt="img.alt || title" class="clickable" draggable="false"
+              @click="open(toFullImages(block.images), iIndex)" />
           </div>
         </div>
 
         <div v-else-if="block.type === 'bento'" class="bento-grid">
           <div v-for="(img, imgIdx) in block.images" :key="img.src" :class="['bento-item', `bento-item--${imgIdx}`]">
-            <img :src="img.src" :alt="img.alt || title" class="clickable" @click="open(block.images, imgIdx)" />
+            <img :src="img.src" :alt="img.alt || title" class="clickable" draggable="false"
+              @click="open(toFullImages(block.images), imgIdx)" />
           </div>
         </div>
       </template>
@@ -68,6 +70,9 @@ function getGalleryGroups(block) {
   }
 
   return groups
+}
+function toFullImages(images) {
+  return images.map(img => ({ ...img, src: img.full || img.src }))
 }
 </script>
 

@@ -13,7 +13,7 @@ export function useLightbox() {
     if (Array.isArray(listOrSrc)) {
       state.images = listOrSrc.map(item => {
         if (typeof item === 'string') return { src: item, alt: '' }
-        return { src: item.src, alt: item.alt || '' }
+        return { src: item.full || item.src, alt: item.alt || '' }
       })
       state.currentIndex = typeof altOrIndex === 'number' ? altOrIndex : index
       state.src = state.images[state.currentIndex]?.src || ''

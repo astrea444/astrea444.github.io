@@ -23,6 +23,7 @@
             {
                 type: 'image',
                 src: s.project.image.src,
+                full: s.project.image.full,
                 alt: s.project.image.alt,
                 size: 'large'
             }
@@ -65,6 +66,7 @@
             {
                 type: 'image',
                 src: s.implementation.image.src,
+                full: s.implementation.image.full,
                 alt: s.implementation.image.alt,
                 size: 'large'
             }
