@@ -8,9 +8,11 @@
             :colors="s?.visualIdentity?.colors" :after-text="s?.visualIdentity?.afterText"
             :images="s?.visualIdentity?.images" :components="s?.visualIdentity.components" />
 
-            <ParagraphSection v-if="s?.problem" :title="s.problem.title" :blocks="s.problem.blocks" />
-            
-            <ParagraphSection v-if="s?.process" :title="s.process.title" :blocks="s.process.blocks" />
+        <ParagraphSection v-if="s?.problem" :title="s.problem.title" :blocks="s.problem.blocks" />
+
+        <ParagraphSection v-if="s?.process" :title="s.process.title" :blocks="s.process.blocks" />
+        
+        <ParagraphSection v-if="s?.decisions" :title="s.decisions.title" :blocks="s.decisions.blocks" />
 
         <ParagraphSection v-if="s?.uiShowcase" :title="s.uiShowcase.title" :blocks="s.uiShowcase.blocks"
             class="gallery-new" />
@@ -20,7 +22,7 @@
         <ParagraphSection v-if="s?.recipes" :title="s.recipes.title" :blocks="s.recipes.blocks" />
 
         <ParagraphSection v-if="s?.development" :title="s.development.title" :blocks="s.development.blocks" />
-        
+
         <NextProject :current-id="1" />
     </article>
 </template>

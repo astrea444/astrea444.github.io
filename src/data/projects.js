@@ -85,6 +85,29 @@ export const projects = [
           },
         ],
       },
+      
+      decisions: {
+        title: "Decyzje projektowe i rozwiązania",
+        blocks: [
+          {
+            type: "text",
+            paragraphs: [
+              "Podczas projektowania listy produktów pojawił się problem z pokazaniem trzech statusów: krótkiego terminu przydatności, małej ilości i ostatnio dodanych produktów. Początkowo umieściłam je jako chipy bezpośrednio przy nazwie produktu, co przy dłuższych nazwach wymuszało ich ucinanie i pogarszało czytelność.",
+
+              'Aby szybko porównać alternatywne układy, skorzystałam z narzędzia AI do prototypowania interfejsów, które wygenerowało trzy propozycje: wariant oparty wyłącznie na ikonach, wariant z chipami przeniesionymi pod nazwę produktu oraz wariant eliminujący chip "Nowe" i oznaczajacy kolorem ten status.',
+
+              "Wariant z samymi ikonami odrzuciłam, ponieważ byłby dla użytkownika nieintuicyjny. Podobnie wolałam nowe produkty oznaczać w oryginalny sposób, zachowując spójność. Ostatecznie wybrałam i dopracowałam drugi wariant, z chipami pod nazwą, rezygnując z własnego pierwotnego układu. Dzięki temu nazwy produktów zostały w pełni widoczne, a statusy produktów są zrozumiałe na pierwszy rzut oka.",
+            ],
+          },
+          {
+            type: "image",
+            src: `${base}assets/project4/variants.webp`,
+            full: `${base}assets/project4/variants-big.webp`,
+            alt: "Porównanie wariantów statusów produktu",
+            size: "large",
+          },
+        ],
+      },
 
       pantry: {
         title: "Zarządzanie domową spiżarnią",
