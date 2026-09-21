@@ -1,12 +1,15 @@
 <script setup>
 import { Icon } from '@iconify/vue'
+import { useI18n } from '@/composables/useI18n'
+
 const year = new Date().getFullYear()
+const { t } = useI18n()
 </script>
 
 <template>
   <footer>
     <div class="footer-inner">
-      <p>© {{ year }} Wiktoria Laska - Wszelkie prawa zastrzeżone.</p>
+      <p>© {{ year }} Wiktoria Laska - {{ t('ui.rightsReserved') }}</p>
       <div class="footer-links">
         <a href="https://github.com/astrea444" target="_blank" rel="noopener noreferrer">
           <Icon icon="mdi:github" height="32" width="32" />

@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import { revealDirective } from "./directives/reveal";
+import { initializeLocale } from "./composables/useI18n";
 import "./styles/main.scss";
 import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/500.css";
@@ -12,6 +13,7 @@ const app = createApp(App);
 app.use(router);
 app.directive("reveal", revealDirective);
 app.mount("#app");
+initializeLocale();
 
 const fontsToLoad = [
   document.fonts.load('400 1rem "Michroma"'),

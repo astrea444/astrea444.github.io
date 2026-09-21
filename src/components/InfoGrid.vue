@@ -1,15 +1,18 @@
 <script setup>
 import PillGrid from './PillGrid.vue'
-import { experience, education, technologies, tools } from '../data/profile'
+import { technologies, tools } from '../data/profile'
+import { useI18n } from '@/composables/useI18n'
+
+const { t, profile } = useI18n()
 </script>
 
 <template>
   <div class="info-grid">
     <div class="two-col wide" v-reveal>
       <div class="section">
-        <h2 class="bar">Doświadczenie</h2>
+        <h2 class="bar">{{ t('ui.experience') }}</h2>
         <div class="section-content">
-          <div v-for="item in experience" :key="item.role" class="exp-item">
+          <div v-for="item in profile.experience" :key="item.role" class="exp-item">
             <div class="exp-head">
               <span class="role">{{ item.role }}</span>
               <span class="dates">{{ item.dates }}</span>
@@ -20,7 +23,7 @@ import { experience, education, technologies, tools } from '../data/profile'
       </div>
 
       <div class="section">
-        <h2 class="bar">Technologie</h2>
+        <h2 class="bar">{{ t('ui.technologies') }}</h2>
         <div class="section-content">
           <PillGrid :items="technologies" />
         </div>
@@ -29,16 +32,16 @@ import { experience, education, technologies, tools } from '../data/profile'
 
     <div class="two-col wide reverse" v-reveal>
       <div class="section">
-        <h2 class="bar">Narzędzia</h2>
+        <h2 class="bar">{{ t('ui.tools') }}</h2>
         <div class="section-content">
           <PillGrid :items="tools" />
         </div>
       </div>
 
       <div class="section">
-        <h2 class="bar">Edukacja</h2>
+        <h2 class="bar">{{ t('ui.education') }}</h2>
         <div class="section-content">
-          <div v-for="item in education" :key="item.title" class="edu-card">
+          <div v-for="item in profile.education" :key="item.title" class="edu-card">
             <div class="edu-dates">{{ item.dates }}</div>
             <div class="edu-sub">
               <strong>{{ item.title }}</strong>

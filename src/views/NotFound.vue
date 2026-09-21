@@ -13,9 +13,15 @@
             </span>
             <span class="font-display rounded">404</span>
         </h1>
-        <RouterLink class="link-button" to="/">Strona główna</RouterLink>
+        <RouterLink class="link-button" to="/">{{ t('ui.notFoundHome') }}</RouterLink>
     </main>
-</template>
+ </template>
+
+<script setup>
+import { useI18n } from '@/composables/useI18n'
+
+const { t } = useI18n()
+</script>
 <style lang="scss" scoped>
 main {
     min-height: 60vh;

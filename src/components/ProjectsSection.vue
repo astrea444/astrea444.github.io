@@ -1,17 +1,18 @@
 <script setup>
 import ProjectCard from './ProjectCard.vue'
-import { projects } from '../data/projects'
+import { useI18n } from '@/composables/useI18n'
+
+const { t, localizedProjects } = useI18n()
 </script>
 
 <template>
   <section class="projects" id="projekty">
     <div class="section-lead" v-reveal>
-      <h2 class="bar">Wyróżnione projekty</h2>
-      <p>Wybrane realizacje z zakresu brandingu, web designu i frontend developmentu. Kliknij kartę, by zobaczyć
-        szczegóły.</p>
+      <h2 class="bar">{{ t('ui.featuredProjects') }}</h2>
+      <p>{{ t('ui.projectsIntro') }}</p>
     </div>
 
-    <ProjectCard v-for="(project, i) in projects" :key="project.id" :project="project" :index="i" />
+    <ProjectCard v-for="(project, i) in localizedProjects" :key="project.id" :project="project" :index="i" />
   </section>
 </template>
 

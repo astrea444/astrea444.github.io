@@ -29,13 +29,14 @@
 
 <script setup>
 import { computed } from 'vue'
-import { projects } from '@/data/projects.js'
+import { useI18n } from '@/composables/useI18n'
 import InfoSection from '@/projects/sections/InfoSection.vue'
 import VisualSection from '@/projects/sections/VisualSection.vue'
 import ParagraphSection from '@/projects/sections/ParagraphSection.vue'
 import NextProject from '@/components/NextProject.vue'
 
-const project = computed(() => projects.find(p => p.id === 1))
+const { localizedProjects } = useI18n()
+const project = computed(() => localizedProjects.value.find(p => p.id === 1))
 const s = computed(() => project.value?.sections)
 </script>
 

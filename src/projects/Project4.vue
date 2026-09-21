@@ -40,7 +40,7 @@
             }
         ]" />
         <section class="flow" v-reveal>
-            <h2 class="section-title">Architektura aplikacji</h2>
+            <h2 class="section-title">{{ t('ui.flowTitle') }}</h2>
 
             <p class="paragraph">
                 Przepływ danych został przygotowany w oparciu o warstwową strukturę aplikacji,
@@ -79,14 +79,15 @@
 
 <script setup>
 import { computed } from 'vue'
-import { projects } from '@/data/projects.js'
+import { useI18n } from '@/composables/useI18n'
 import { Icon } from '@iconify/vue'
 import InfoSection from '@/projects/sections/InfoSection.vue'
 import ParagraphSection from '@/projects/sections/ParagraphSection.vue'
 import VisualSection from '@/projects/sections/VisualSection.vue'
 import PillGrid from '@/components/PillGrid.vue'
 
-const project = computed(() => projects.find(p => p.id === 4))
+const { localizedProjects, t } = useI18n()
+const project = computed(() => localizedProjects.value.find(p => p.id === 4))
 const s = computed(() => project.value?.sections)
 
 const flow = ["MockData", "API Layer", "Store", "Views", "Components"]

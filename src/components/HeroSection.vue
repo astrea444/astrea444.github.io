@@ -7,8 +7,10 @@ import hero4 from '/assets/hero/hero_4.webp'
 import hero5 from '/assets/hero/hero_5.webp'
 import hero6 from '/assets/hero/hero_6.webp'
 import hero7 from '/assets/hero/hero_7.webp'
+import { useI18n } from '@/composables/useI18n'
 
 const badges = ['Graphic Design', 'UI/UX Design', 'Frontend Dev']
+const { t } = useI18n()
 const decorItems = [
   { src: hero1, cls: 'decor-1', delay: 0.55 },
   { src: hero2, cls: 'decor-2', delay: 0.62 },
@@ -45,16 +47,13 @@ const decorItems = [
     </div>
 
     <section class="hero-about" id="o-mnie">
-      <span class="bar">O mnie</span>
+      <span class="bar">{{ t('ui.about') }}</span>
       <div class="about-body" v-reveal>
         <p>
-          Jestem studentką informatyki, specjalizującą się w projektowaniu interfejsów użytkownika, grafice
-          komputerowej i frontend developmencie. Najlepiej odnajduję się w projektowaniu produktów cyfrowych oraz
-          implementacji interfejsów.
+          {{ t('hero.about.0') }}
         </p>
         <p>
-          Dodatkowo ciągle rozwijam swoje umiejętności, aby projektować rozwiązania, które są nie tylko atrakcyjne
-          wizualnie, ale również dobrze przemyślane od strony technicznej.
+          {{ t('hero.about.1') }}
         </p>
       </div>
     </section>
@@ -76,7 +75,6 @@ const decorItems = [
 }
 
 .hero-decor {
-  // display: none;
   position: absolute;
   inset: 1rem -18rem;
   z-index: 0;

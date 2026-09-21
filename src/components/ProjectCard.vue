@@ -1,5 +1,8 @@
 <script setup>
 import { Icon } from '@iconify/vue'
+import { useI18n } from '@/composables/useI18n'
+
+const { t } = useI18n()
 defineProps({
   project: { type: Object, required: true },
   index: { type: Number, required: true }
@@ -20,7 +23,7 @@ defineProps({
       <div class="project-text">
         <h3>{{ project.title }}</h3>
         <p>{{ project.description }}</p>
-        <div class="open-hint">Zobacz szczegóły
+        <div class="open-hint">{{ t('ui.seeDetails') }}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M5 12h14M13 6l6 6-6 6" />
           </svg>

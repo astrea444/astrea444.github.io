@@ -4,20 +4,20 @@
             <div v-if="state.isOpen" class="lightbox" @click.self="handleClose" @wheel.prevent.stop="onWheel">
                 <div class="toolbar">
                     <div class="zoom">
-                        <button class="btn" @click="zoomOut" :disabled="scale <= MIN_SCALE" aria-label="Oddal">
+                        <button class="btn" @click="zoomOut" :disabled="scale <= MIN_SCALE" :aria-label="t('ui.zoomOut')">
                             <Icon icon="lucide:minus" height="18" width="18" />
                         </button>
                         <span class="scale">{{ Math.round(scale * 100) }}%</span>
-                        <button class="btn" @click="zoomIn" :disabled="scale >= MAX_SCALE" aria-label="Przybliż">
+                        <button class="btn" @click="zoomIn" :disabled="scale >= MAX_SCALE" :aria-label="t('ui.zoomIn')">
                             <Icon icon="lucide:plus" height="18" width="18" />
                         </button>
                     </div>
-                    <button class="btn btn--close" @click="handleClose" aria-label="Zamknij">
+                    <button class="btn btn--close" @click="handleClose" :aria-label="t('ui.close')">
                         <Icon icon="lucide:x" height="18" width="18" />
                     </button>
                 </div>
 
-                <button v-if="state.images.length > 1" class="nav-btn prev" @click.stop="prev" aria-label="Poprzednie">
+                <button v-if="state.images.length > 1" class="nav-btn prev" @click.stop="prev" :aria-label="t('ui.previous')">
                     <Icon icon="lucide:chevron-left" />
                 </button>
 
@@ -28,7 +28,7 @@
                         draggable="false" @pointerup.stop="onImagePointerUp" />
                 </div>
 
-                <button v-if="state.images.length > 1" class="nav-btn next" @click.stop="next" aria-label="Następne">
+                <button v-if="state.images.length > 1" class="nav-btn next" @click.stop="next" :aria-label="t('ui.next')">
                     <Icon icon="lucide:chevron-right" />
                 </button>
             </div>
@@ -40,6 +40,9 @@
 import { ref, watch, onMounted, onBeforeUnmount, computed } from 'vue'
 import { useLightbox } from '../composables/useLightbox'
 import { Icon } from '@iconify/vue'
+import { useI18n } from '../composables/useI18n'
+
+const { t } = useI18n()
 
 const { state, close, next, prev } = useLightbox()
 

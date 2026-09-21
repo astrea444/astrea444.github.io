@@ -1,7 +1,7 @@
 <template>
   <RouterLink v-if="nextProject" class="next-project" :to="`/projekty/${nextProject.id}`" v-reveal>
     <div class="info">
-      <span class="next-label">Następny projekt</span>
+      <span class="next-label">{{ t('ui.nextProject') }}</span>
       <span class="next-title">{{ nextProject.title }}</span>
     </div>
     <Icon icon="lucide:arrow-right" />
@@ -11,8 +11,10 @@
 <script setup>
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { projects } from '@/data/projects.js'
 import { Icon } from '@iconify/vue'
+import { useI18n } from '@/composables/useI18n'
+
+const { t, localizedProjects } = useI18n()
 
 const props = defineProps({
   currentId: {
@@ -30,7 +32,8 @@ const currentId = computed(() => {
 })
 
 const nextProject = computed(() => {
-  if (!projects || projects.length === 0) return null
+  const projects = localizedProjects.value
+  if (!projects.length) return null
   const idx = projects.findIndex(p => p.id === currentId.value)
   if (idx === -1) return projects[0]
   const nextIdx = (idx + 1) % projects.length

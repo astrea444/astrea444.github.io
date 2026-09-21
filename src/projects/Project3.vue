@@ -58,7 +58,7 @@
 
 <script setup>
 import { computed } from 'vue'
-import { projects } from '@/data/projects.js'
+import { useI18n } from '@/composables/useI18n'
 import InfoSection from '@/projects/sections/InfoSection.vue'
 import VisualSection from '@/projects/sections/VisualSection.vue'
 import NextProject from '@/components/NextProject.vue'
@@ -67,7 +67,8 @@ import { useLightbox } from '@/composables/useLightbox'
 
 const { open } = useLightbox()
 
-const project = computed(() => projects.find(p => p.id === 3))
+const { localizedProjects } = useI18n()
+const project = computed(() => localizedProjects.value.find(p => p.id === 3))
 const s = computed(() => project.value?.sections)
 
 const base = import.meta.env.BASE_URL

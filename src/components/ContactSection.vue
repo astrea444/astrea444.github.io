@@ -1,5 +1,8 @@
 <script setup>
 import { reactive, ref } from 'vue'
+import { useI18n } from '@/composables/useI18n'
+
+const { t } = useI18n()
 
 const form = reactive({
   name: '',
@@ -13,13 +16,13 @@ const error = ref('')
 
 async function handleSubmit() {
   if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
-    error.value = 'Wypełnij wszystkie pola.'
+    error.value = t('ui.fillAllFields')
     return
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
   if (!emailRegex.test(form.email)) {
-    error.value = 'Podaj poprawny adres e-mail.'
+    error.value = t('ui.invalidEmail')
     return
   }
 
@@ -45,7 +48,7 @@ async function handleSubmit() {
     form.email = ''
     form.message = ''
   } catch {
-    error.value = 'Nie udało się wysłać wiadomości.'
+    error.value = t('ui.sendFailed')
   } finally {
     loading.value = false
   }
@@ -54,13 +57,13 @@ async function handleSubmit() {
 
 <template>
   <section class="contact" id="kontakt">
-    <span class="bar">Kontakt</span>
+    <span class="bar">{{ t('ui.contact') }}</span>
     <div class="contact-body" v-reveal>
-      <p class="lead">Masz projekt, przy którym mogłabym pomóc? Napisz kilka słów poniżej.</p>
+      <p class="lead">{{ t('ui.contactLead') }}</p>
 
       <form v-if="!submitted" @submit.prevent="handleSubmit">
         <div class="form-row">
-          <label for="name">Imię</label>
+          <label for="name">{{ t('ui.name') }}</label>
           <input id="name" v-model="form.name" type="text" name="name" required />
         </div>
         <div class="form-row">
@@ -68,11 +71,11 @@ async function handleSubmit() {
           <input id="email" v-model="form.email" type="email" name="email" required />
         </div>
         <div class="form-row">
-          <label for="message">Wiadomość</label>
+          <label for="message">{{ t('ui.message') }}</label>
           <textarea id="message" v-model="form.message" name="message" required />
         </div>
         <button type="submit" class="submit-btn" :disabled="loading">
-          {{ loading ? 'Wysyłanie...' : 'Wyślij wiadomość' }}
+          {{ loading ? t('ui.sending') : t('ui.sendMessage') }}
         </button>
         <p v-if="error" class="form-error" role="alert" aria-live="assertive">
           {{ error }}
@@ -80,7 +83,7 @@ async function handleSubmit() {
       </form>
 
       <div v-else class="form-success" role="status">
-        Dziękuję za wiadomość! Odezwę się najszybciej jak to możliwe.
+        {{ t('ui.thankYou') }}
       </div>
     </div>
   </section>
