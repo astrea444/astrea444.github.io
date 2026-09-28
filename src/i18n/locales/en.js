@@ -10,7 +10,6 @@ export default {
     experience: 'Experience',
     technologies: 'Technologies',
     tools: 'Tools',
-    education: 'Education',
     nextProject: 'Next project',
     seeDetails: 'See details',
     language: 'Language',
@@ -50,10 +49,6 @@ export default {
         description: 'Designing interfaces and UI components, creating wireframes and prototypes, frontend implementation, web design, and the design of digital graphics, print materials, and branding..'
       }
     ],
-    education: [
-      { dates: '2025 - Present', title: 'Applied Computer Science (part-time studies) - ', subtitle: 'Bydgoszcz University of Science and Technology' },
-      { dates: '2019 - 2023', title: 'High School ', subtitle: 'No. 1 in Kościerzyna' }
-    ]
   },
   hero: {
     about: [

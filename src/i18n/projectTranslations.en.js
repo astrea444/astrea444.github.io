@@ -107,7 +107,7 @@ export default {
       },
     },
   },
- 
+
   2: {
     title: 'GOK Brass Band in Kuryłówka',
     description:
@@ -171,7 +171,7 @@ export default {
       },
     },
   },
- 
+
   3: {
     title: 'Youth Municipal Council in Aleksandrów Łódzki',
     description:
@@ -184,9 +184,9 @@ export default {
       visualIdentity: {
         title: 'Visual identity',
         description:
-          "The final mark is built from two silhouettes symbolizing cooperation and community. Together their shape forms the letter \"M,\" tying the logo directly to the organization's name.\n\nThe rounded construction keeps the design approachable while staying legible and appropriate for an official organization.",
+          "The visual identity is built around a simple, flexible system that combines a distinctive logo, a defined color palette, geometric patterns, and a clear typographic hierarchy. The visual language was designed to feel contemporary and approachable while maintaining the credibility of an official municipal organization.\n\nThe color palette is based on the colors of Aleksandrów Łódzki, taken from the city's coat of arms and flag. Geometric patterns inspired by local visual elements extend the identity across different applications, particularly the Youth Cards and promotional materials.",
         afterText:
-          "The color palette is based on the city's colors, taken from Aleksandrów Łódzki's coat of arms and flag. Geometric patterns inspired by local design were added as an extra element, used mainly on the youth cards.\n\nThe typography pairs the more distinctive Anybody with the simple, readable Work Sans, giving the identity a youthful character without losing a professional look.",
+          "The typography combines Anybody with Work Sans. Anybody adds character and a more distinctive visual tone, while Work Sans provides a clean and highly readable foundation for longer texts and functional information.",
       },
       printMaterials: {
         title: 'Print and promotional materials',
@@ -202,9 +202,9 @@ export default {
       process: {
         title: 'Design process',
         paragraphs: [
-          "The project grew in stages. It initially covered only the youth card design, but the scope expanded during the work to include a full visual identity, promotional materials, and a website.",
-          "While designing, I looked for a balance between the official character of an organization tied to local government and a more open communication style aimed at young people. I tested several visual directions, focusing mainly on the theme of community and cooperation.",
-          "The final mark combines two silhouettes with the letter \"M,\" so the identity ties directly to the organization's name while staying a simple, recognizable symbol.",
+          "The project started with the design of the Youth Card and gradually expanded into a broader identity system, promotional materials, and a website. As the scope grew, the main challenge was to create a visual direction that could work consistently across both official communication and materials intended for a younger audience.",
+          "The design process focused on finding the right balance between these two aspects. I explored several visual directions, testing different approaches to the logo, typography, color, and supporting graphic elements. The final direction was developed around the idea of community and cooperation, which became the foundation for the visual language used throughout the project.",
+          "Once the direction was established, the identity was developed as a flexible system rather than a standalone logo. The visual elements were tested across different formats and applications to ensure that they remained recognizable, consistent, and functional in both print and digital environments.",
         ],
         image: { alt: 'Logo variations' },
       },
@@ -219,7 +219,7 @@ export default {
       },
     },
   },
- 
+
   4: {
     title: 'Admin Dashboard',
     description:
@@ -273,4 +273,3 @@ export default {
     },
   },
 }
- 

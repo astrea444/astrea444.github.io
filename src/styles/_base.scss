@@ -76,6 +76,7 @@ body {
   letter-spacing: 0.012em;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.5s $ease;
+  text-wrap: pretty;
 }
 
 h1,

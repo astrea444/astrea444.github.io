@@ -10,7 +10,6 @@ export default {
     experience: 'Doświadczenie',
     technologies: 'Technologie',
     tools: 'Narzędzia',
-    education: 'Edukacja',
     nextProject: 'Następny projekt',
     seeDetails: 'Zobacz szczegóły',
     language: 'Język',
@@ -50,10 +49,6 @@ export default {
         description: 'Projektowanie interfejsów i komponentów UI, tworzenie makiet i prototypów oraz wdrażanie z zakresu frontend, webdesign projektowanie grafik cyfrowych, materiałów do druku, branding.'
       }
     ],
-    education: [
-      { dates: '2025 - Teraz', title: 'Informatyka Stosowana - ', subtitle: 'Politechnika Bydgoska im. Jana i Jędrzeja Śniadeckich' },
-      { dates: '2019 - 2023', title: 'Liceum Ogólnokształcące ', subtitle: ' nr I im. J. Wybickiego w Kościerzynie' }
-    ]
   },
   hero: {
     about: [

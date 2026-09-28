@@ -1,6 +1,6 @@
 <script setup>
 import PillGrid from './PillGrid.vue'
-import { technologies, tools } from '../data/profile'
+import { technologies, tools } from '../data/skills.js'
 import { useI18n } from '@/composables/useI18n'
 
 const { t, profile } = useI18n()
@@ -8,7 +8,23 @@ const { t, profile } = useI18n()
 
 <template>
   <div class="info-grid">
-    <div class="two-col wide" v-reveal>
+    <div class="two-col" v-reveal>
+
+      <div class="section">
+        <h2 class="bar">{{ t('ui.tools') }}</h2>
+        <div class="section-content">
+          <PillGrid :items="tools" />
+        </div>
+      </div>
+      <div class="section">
+        <h2 class="bar">{{ t('ui.technologies') }}</h2>
+        <div class="section-content">
+          <PillGrid :items="technologies" />
+        </div>
+      </div>
+    </div>
+
+    <div class="reverse" v-reveal>
       <div class="section">
         <h2 class="bar">{{ t('ui.experience') }}</h2>
         <div class="section-content">
@@ -18,35 +34,6 @@ const { t, profile } = useI18n()
               <span class="dates">{{ item.dates }}</span>
             </div>
             <p>{{ item.description }}</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2 class="bar">{{ t('ui.technologies') }}</h2>
-        <div class="section-content">
-          <PillGrid :items="technologies" />
-        </div>
-      </div>
-    </div>
-
-    <div class="two-col wide reverse" v-reveal>
-      <div class="section">
-        <h2 class="bar">{{ t('ui.tools') }}</h2>
-        <div class="section-content">
-          <PillGrid :items="tools" />
-        </div>
-      </div>
-
-      <div class="section">
-        <h2 class="bar">{{ t('ui.education') }}</h2>
-        <div class="section-content">
-          <div v-for="item in profile.education" :key="item.title" class="edu-card">
-            <div class="edu-dates">{{ item.dates }}</div>
-            <div class="edu-sub">
-              <strong>{{ item.title }}</strong>
-              <template v-if="item.subtitle">{{ item.subtitle }}</template>
-            </div>
           </div>
         </div>
       </div>
@@ -93,64 +80,64 @@ const { t, profile } = useI18n()
       }
     }
 
-    .section {
-      padding: $s-3 0;
+  }
+  .section {
+    padding: $s-3 0;
 
-      @include respond(xs) {
-        padding: $s-8 0;
-      }
+    @include respond(xs) {
+      padding: $s-8 0;
+    }
 
-      .bar {
-        @include section-bar;
-      }
+    .bar {
+      @include section-bar;
+    }
 
-      .section-content {
+    .section-content {
+      display: flex;
+      flex-direction: column;
+      gap: $s-5;
+      padding: 0 $s-3;
+
+      .exp-head {
         display: flex;
-        flex-direction: column;
-        gap: $s-5;
-        padding: 0 $s-3;
+        justify-content: flex-start;
+        align-items: baseline;
+        gap: $s-4;
+        margin-bottom: $s-2;
+        flex-wrap: wrap;
 
-        .exp-head {
-          display: flex;
-          justify-content: flex-start;
-          align-items: baseline;
-          gap: $s-4;
-          margin-bottom: $s-2;
-          flex-wrap: wrap;
-
-          .role {
-            font-weight: 500;
-            font-size: $fs-base;
-          }
-
-          .dates {
-            font-size: calc($fs-base * 0.8);
-            color: $c-muted-fg;
-            font-weight: 500;
-          }
-        }
-      }
-
-      .exp-item {
-        display: flex;
-        flex-direction: column;
-        padding-right: 0;
-
-        p {
+        .role {
+          font-weight: 500;
           font-size: $fs-base;
-          line-height: 1.4;
-          color: $c-fg;
-          opacity: .9;
-
-          @include respond(xs) {
-            margin-bottom: $s-4;
-            font-size: $fs-base;
-          }
         }
 
-        &:last-child {
-          margin-bottom: 0;
+        .dates {
+          font-size: calc($fs-base * 0.8);
+          color: $c-muted-fg;
+          font-weight: 500;
         }
+      }
+    }
+
+    .exp-item {
+      display: flex;
+      flex-direction: column;
+      padding-right: 0;
+
+      p {
+        font-size: $fs-base;
+        line-height: 1.4;
+        color: $c-fg;
+        opacity: .9;
+
+        @include respond(xs) {
+          margin-bottom: $s-4;
+          font-size: $fs-base;
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 0;
       }
     }
   }

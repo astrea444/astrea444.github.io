@@ -85,7 +85,7 @@ export const projects = [
           },
         ],
       },
-      
+
       decisions: {
         title: "Decyzje projektowe i rozwiązania",
         blocks: [
@@ -371,7 +371,7 @@ export const projects = [
         title: "Identyfikacja wizualna",
 
         description:
-          "Finalny znak oparty został na połączeniu dwóch sylwetek symbolizujących współpracę i społeczność. Ich forma tworzy literę „M”, dzięki czemu logo nawiązuje bezpośrednio do nazwy organizacji.\n\nZaokrąglona konstrukcja pozwala zachować przyjazny charakter projektu, jednocześnie pozostając czytelna i odpowiednia dla oficjalnej organizacji.",
+          "Identyfikacja wizualna została oparta na prostym i elastycznym systemie łączącym charakterystyczny znak, określoną kolorystykę, geometryczne wzory oraz spójną hierarchię typograficzną. Język wizualny został zaprojektowany tak, aby być nowoczesny i przystępny, a jednocześnie zachować wiarygodność oficjalnej organizacji samorządowej.\n\nKolorystyka została oparta na barwach Aleksandrowa Łódzkiego obecnych w herbie i fladze miasta. Geometryczne wzory inspirowane lokalnym wzornictwem uzupełniają system i pozwalają rozszerzyć go na różne materiały, szczególnie Karty Młodzieżowe i materiały promocyjne.",
 
         colors: [
           { hex: "#F66055" },
@@ -383,7 +383,7 @@ export const projects = [
         components: `${base}assets/project1/components.webp`,
 
         afterText:
-          "Kolorystyka została oparta na barwach miasta obecnych w herbie i fladze Aleksandrowa Łódzkiego. Dodatkowym elementem systemu zostały geometryczne wzory inspirowane lokalnym wzornictwem, wykorzystywane głównie na kartach młodzieżowych.\n\nTypografia łączy bardziej charakterystyczny font Anybody z prostym i czytelnym Work Sans, dzięki czemu identyfikacja zachowuje młodzieżowy charakter bez utraty profesjonalnego wyglądu.",
+          "Typografia łączy charakterystyczny font Anybody z prostym i czytelnym Work Sans. Anybody nadaje identyfikacji wyrazisty charakter, natomiast Work Sans zapewnia czytelność w dłuższych tekstach i informacjach użytkowych.",
 
         images: [],
       },
@@ -428,9 +428,9 @@ export const projects = [
       process: {
         title: "Proces projektowy",
         paragraphs: [
-          "Projekt rozwijał się etapami. Początkowo zakres obejmował jedynie zaprojektowanie kart młodzieżowych, jednak w trakcie prac został rozszerzony o pełną identyfikację wizualną, materiały promocyjne oraz stronę internetową.",
-          "Podczas projektowania szukałam balansu między oficjalnym charakterem organizacji działającej przy samorządzie a bardziej otwartą komunikacją skierowaną do młodych osób. Testowałam różne kierunki wizualne, skupiając się głównie na motywie społeczności i współpracy.",
-          "Finalny znak powstał z połączenia dwóch sylwetek oraz litery „M”, dzięki czemu identyfikacja nawiązuje bezpośrednio do nazwy organizacji, ale nadal pozostaje prostym i rozpoznawalnym symbolem.",
+          "Projekt rozpoczął się od zaprojektowania Karty Młodzieżowej i stopniowo rozszerzył się o pełną identyfikację wizualną, materiały promocyjne oraz stronę internetową. Wraz z rozwojem zakresu projektu kluczowym wyzwaniem stało się stworzenie kierunku wizualnego, który sprawdzi się zarówno w oficjalnej komunikacji, jak i w materiałach skierowanych do młodych odbiorców.",
+          "Proces projektowy koncentrował się na znalezieniu odpowiedniego balansu między tymi dwoma obszarami. Testowałam różne kierunki wizualne, pracując nad formą znaku, typografią, kolorystyką oraz dodatkowymi elementami graficznymi. Ostateczny kierunek został oparty na idei społeczności i współpracy, która stała się podstawą całego języka wizualnego.",
+          "Po wybraniu kierunku identyfikacja została rozwinięta jako elastyczny system, a nie jedynie pojedynczy znak. Poszczególne elementy były testowane na różnych formatach i materiałach, aby zachować ich rozpoznawalność, spójność oraz funkcjonalność zarówno w druku, jak i w środowisku cyfrowym.",
         ],
         image: {
           src: `${base}assets/project1/concept.webp`,
@@ -443,7 +443,7 @@ export const projects = [
         title: "Strona internetowa",
 
         paragraphs: [
-          "Strona internetowa została zaprojektowana jako główny punkt komunikacji Młodzieżowej Rady Miejskiej oraz programu karty młodzieżowej. Najważniejszym założeniem było uporządkowanie informacji i ułatwienie użytkownikom przejścia przez proces uzyskania karty.",
+          "Strona internetowa została zaprojektowana jako główny punkt komunikacji Młodzieżowej Rady Miejskiej oraz programu Karty Młodzieżowej. Najważniejszym założeniem było uporządkowanie informacji i ułatwienie użytkownikom przejścia przez proces uzyskania karty.",
 
           "Warstwa wizualna została oparta na stworzonej wcześniej identyfikacji. Jasne tło, wyraziste kolory oraz modułowy układ pozwoliły zachować spójność z materiałami drukowanymi.",
 

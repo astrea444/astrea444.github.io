@@ -365,7 +365,7 @@ const decorItems = [
 .hero-about {
   position: relative;
   z-index: 1;
-  margin-top: 8rem;
+  margin-top: 12rem;
 }
 
 .bar {
