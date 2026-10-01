@@ -1,5 +1,5 @@
 <template>
-  <header class="nav">
+  <header ref="headerRef" class="nav">
     <div class="nav-inner">
       <RouterLink to="/" class="nav-logo" :aria-label="t('ui.home')">
         <svg width="461" height="440" viewBox="0 0 461 440" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -11,30 +11,78 @@
             fill="#3d6fe0" />
         </svg>
       </RouterLink>
-      <nav class="nav-links" :aria-label="t('ui.navigation')">
-        <a href="#" @click.prevent="scrollToSection('projekty')">{{ t('ui.projects') }}</a>
-        <a href="#" @click.prevent="scrollToSection('kontakt')">{{ t('ui.contact') }}</a>
-        <button class="language-toggle" type="button" :aria-label="t('ui.switchTo')" @click="toggleLocale">
-          {{ locale === 'pl' ? 'EN' : 'PL' }}
-        </button>
+
+      <nav id="nav-menu" class="nav-links" :class="{ 'is-open': isOpen }" :aria-label="t('ui.navigation')">
+        <div class="nav-links__clip">
+          <div class="nav-links__content">
+            <a href="#" @click.prevent="scrollToSection('projekty')">{{ t('ui.projects') }}</a>
+            <RouterLink to="/visuals">{{ t('ui.visuals') }}</RouterLink>
+            <a href="#" @click.prevent="scrollToSection('kontakt')">{{ t('ui.contact') }}</a>
+            <button class="language-toggle" :class="{ 'is-en': locale === 'en' }" type="button" role="switch"
+              :aria-checked="locale === 'en'" :aria-label="t('ui.switchTo')" @click="toggleLocale">
+              <span class="language-toggle__thumb" aria-hidden="true"></span>
+              <span class="language-toggle__option" :class="{ 'is-active': locale === 'pl' }">PL</span>
+              <span class="language-toggle__option" :class="{ 'is-active': locale === 'en' }">EN</span>
+            </button>
+          </div>
+        </div>
       </nav>
+
+      <button class="nav-burger" type="button" :aria-expanded="isOpen" aria-controls="nav-menu"
+        :aria-label="isOpen ? t('ui.closeMenu') : t('ui.openMenu')" @click="isOpen = !isOpen">
+        <Transition name="icon-swap" mode="out-in">
+          <Icon v-if="isOpen" key="close" icon="lucide:x" class="nav-burger__icon" aria-hidden="true" />
+          <Icon v-else key="open" icon="lucide:menu" class="nav-burger__icon" aria-hidden="true" />
+        </Transition>
+      </button>
     </div>
   </header>
 </template>
 
 <script setup>
+import { ref, watch, onMounted, onBeforeUnmount } from "vue";
 import { useRouter, useRoute } from "vue-router";
+import { Icon } from '@iconify/vue'
 import { useI18n } from '@/composables/useI18n'
 
 const router = useRouter();
 const route = useRoute();
 const { locale, t, setLocale } = useI18n()
 
+const isOpen = ref(false);
+const headerRef = ref(null);
+
+function closeMenu() {
+  isOpen.value = false;
+}
+
+function onKeydown(e) {
+  if (e.key === "Escape") closeMenu();
+}
+
+function onPointerDown(e) {
+  if (!isOpen.value) return;
+  if (headerRef.value && !headerRef.value.contains(e.target)) closeMenu();
+}
+
+onMounted(() => {
+  window.addEventListener("keydown", onKeydown);
+  document.addEventListener("pointerdown", onPointerDown);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("keydown", onKeydown);
+  document.removeEventListener("pointerdown", onPointerDown);
+});
+
+watch(() => route.fullPath, closeMenu);
+
 function toggleLocale() {
   setLocale(locale.value === 'pl' ? 'en' : 'pl')
 }
 
 function scrollToSection(id) {
+  closeMenu();
   if (route.path !== "/") {
     router.push({ path: "/", hash: `#${id}` });
   } else {
@@ -83,69 +131,207 @@ function scrollToSection(id) {
 }
 
 .nav-links {
-  display: flex;
-  gap: 1.75rem;
+  &__clip {
+    display: contents;
+  }
 
-  a {
-    font-weight: 500;
-    font-size: $fs-sm;
-    letter-spacing: 0.01em;
-    position: relative;
-    padding: $s-1 $s-2;
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
 
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 100%;
-      bottom: 0;
-      height: $border-w-thick;
-      background: $c-accent;
-      transition: right 0.45s $ease;
-    }
+    a {
+      font-weight: 500;
+      font-size: $fs-sm;
+      letter-spacing: 0.01em;
+      position: relative;
+      padding: $s-1 $s-2;
 
-    &:active::after {
-      right: 0;
-    }
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 100%;
+        bottom: 0;
+        height: $border-w-thick;
+        background: $c-accent;
+        transition: right 0.45s $ease;
+      }
 
-    @media (hover: hover) {
-      &:hover::after {
+      &:active::after {
         right: 0;
+      }
+
+      @media (hover: hover) {
+        &:hover::after {
+          right: 0;
+        }
       }
     }
   }
 
   @include respond-max(tablet) {
-    gap: $s-4;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-rows: 0fr;
+    visibility: hidden;
+    transition:
+      grid-template-rows 0.35s cubic-bezier(0.65, 0, 0.35, 1),
+      visibility 0s linear 0.35s;
 
-    a {
-      font-size: $fs-base;
-      height: 100%;
-      padding: $s-3;
+    &.is-open {
+      grid-template-rows: 1fr;
+      visibility: visible;
+      transition:
+        grid-template-rows 0.4s $ease,
+        visibility 0s;
+    }
+
+    &__clip {
+      display: block;
+      min-height: 0;
+      overflow: hidden;
+      background: $c-bg;
+    }
+
+    &__content {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: $s-4 $s-10 $s-6;
+      border-bottom: $border-w solid $c-border;
+      opacity: 0;
+      transition: opacity 0.2s $ease;
+
+      a {
+        font-size: $fs-base;
+        padding: $s-4 $s-2;
+      }
+
+      .language-toggle {
+        align-self: flex-start;
+        margin: $s-4 0 0 $s-2;
+      }
+    }
+
+    &.is-open &__content {
+      opacity: 1;
+      transition: opacity 0.3s $ease 0.1s;
     }
   }
 }
 
+.nav-burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: $c-fg;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+
+  &__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  &:focus-visible {
+    background: rgba(37, 131, 255, 0.15);
+    outline: none;
+  }
+
+  @include respond-max(tablet) {
+    display: flex;
+  }
+}
+
+.icon-swap-enter-active,
+.icon-swap-leave-active {
+  transition: opacity 0.15s $ease, rotate 0.2s $ease;
+}
+
+.icon-swap-enter-from {
+  opacity: 0;
+  rotate: -90deg;
+}
+
+.icon-swap-leave-to {
+  opacity: 0;
+  rotate: 90deg;
+}
+
 .language-toggle {
+  --toggle-size: 2.25rem;
+
+  position: relative;
+  isolation: isolate;
+  display: inline-grid;
+  grid-template-columns: repeat(2, var(--toggle-size));
+  padding: $s-1;
   border: $border-w solid $c-border;
   border-radius: $radius-pill;
   background: $c-bg;
-  color: $c-fg;
-  font-weight: 500;
-  font-size: $fs-base;
-  padding: $s-1 $s-3;
-  transition: box-shadow 0.3s $ease, transform 0.3s $ease;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: box-shadow 0.3s $ease, scale 0.3s $ease;
+
+  @media (hover: hover) {
+    &:hover {
+      box-shadow: 0.15rem 0.15rem 0px $c-accent, inset -0.15rem -0.15rem 0px rgba(0, 0, 0, 0.2);
+    }
+  }
 
   &:active {
-    transform: scale(0.95);
+    scale: 0.95;
   }
 
-  &:hover {
-    box-shadow: 0.15rem 0.15rem 0px $c-accent, inset -0.15rem -0.15rem 0px rgba(0, 0, 0, 0.2);
+  &:focus-visible {
+    background: rgba(37, 131, 255, 0.15);
+    outline: none
   }
 
-  @include respond(mobile) {
-    width: auto;
+  &__thumb {
+    position: absolute;
+    z-index: -1;
+    top: $s-1;
+    left: $s-1;
+    width: var(--toggle-size);
+    height: var(--toggle-size);
+    border-radius: $radius-pill;
+    background: $c-accent;
+    box-shadow: inset -0.15rem -0.15rem 0px rgba(0, 0, 0, 0.2);
+    transition: translate 0.5s $ease-spring;
+  }
+
+  &.is-en &__thumb {
+    translate: 100% 0;
+  }
+
+  &__option {
+    display: grid;
+    place-items: center;
+    width: var(--toggle-size);
+    height: var(--toggle-size);
+    font-weight: 500;
+    font-size: $fs-xs;
+    line-height: 1;
+    color: $c-fg;
+    opacity: 0.55;
+    transition: color 0.3s $ease, opacity 0.3s $ease;
+
+    &.is-active {
+      color: $c-accent-fg;
+      opacity: 1;
+    }
   }
 }
 </style>

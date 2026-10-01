@@ -40,8 +40,9 @@
         ]" />
         <div class="desktop_showcase" v-reveal>
             <img :src="`${base}assets/project2/home.webp`" alt="Desktop Showcase" class="clickable" loading="lazy"
-                draggable="false"
-                @click="open(`${base}assets/project2/home.webp`, 'Desktop Showcase')" />
+                draggable="false" role="button" tabindex="0" aria-label="Desktop Showcase"
+                @click="open(`${base}assets/project2/home.webp`, 'Desktop Showcase')"
+                @keydown.enter.space.prevent="open(`${base}assets/project2/home.webp`, 'Desktop Showcase')" />
         </div>
         <ParagraphSection v-if="s?.mobile" :title="s.mobile.title" :blocks="[
             {

@@ -22,7 +22,8 @@
 
     <div v-if="images.length" class="images">
       <img v-for="(img, idx) in images" :key="img.src" :src="img.src" :alt="img.alt || title" class="clickable"
-       draggable="false" @click="open(images, idx)" />
+       draggable="false" role="button" tabindex="0" :aria-label="img.alt || title" @click="open(images, idx)"
+       @keydown.enter.space.prevent="open(images, idx)" />
     </div>
   </section>
 </template>

@@ -139,7 +139,7 @@ async function handleSubmit() {
     &:focus {
       outline: none;
       border-color: $c-accent;
-      box-shadow: 0 0 0 0.1875rem rgba(61, 111, 224, 0.2);
+      box-shadow: 0 0 0 0.1875rem rgba(37, 131, 255, 0.2);
     }
   }
 

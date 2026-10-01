@@ -1,11 +1,14 @@
 import { computed, ref } from 'vue'
 import { projects } from '@/data/projects.js'
+import { visualSets } from '@/data/visuals.js'
 import pl from '@/i18n/locales/pl.js'
 import en from '@/i18n/locales/en.js'
-import projectTranslationsEn from '@/i18n/projectTranslations.en.js'
+import projectTranslationsEn from '@/i18n/translations/projects.en.js'
+import visualTranslationsEn from '@/i18n/translations/visuals.en.js'
 
 const messages = { pl, en }
 const projectTranslations = { pl: {}, en: projectTranslationsEn }
+const visualTranslations = { pl: {}, en: visualTranslationsEn }
 const storedLocale = typeof window !== 'undefined' ? window.localStorage.getItem('portfolio-locale') : null
 const locale = ref(storedLocale === 'en' ? 'en' : 'pl')
 
@@ -32,9 +35,14 @@ function getValue(source, path) {
   return path.split('.').reduce((value, key) => value?.[key], source)
 }
 
+function localize(items, translations) {
+  return items.map((item) => mergeDeep(item, translations[locale.value][item.id]))
+}
+
 export function useI18n() {
   const t = (path) => getValue(messages[locale.value], path) ?? getValue(messages.pl, path) ?? path
-  const localizedProjects = computed(() => projects.map((project) => mergeDeep(project, projectTranslations[locale.value][project.id])))
+  const localizedProjects = computed(() => localize(projects, projectTranslations))
+  const localizedVisuals = computed(() => localize(visualSets, visualTranslations))
   const profile = computed(() => messages[locale.value].profile ?? messages.pl.profile)
 
   function setLocale(nextLocale) {
@@ -46,7 +54,7 @@ export function useI18n() {
       : 'Wiktoria Laska - UI/UX Designerka & Frontend Developerka'
   }
 
-  return { locale, t, setLocale, localizedProjects, profile }
+  return { locale, t, setLocale, localizedProjects, localizedVisuals, profile }
 }
 
 export function initializeLocale() {

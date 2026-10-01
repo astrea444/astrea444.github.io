@@ -11,14 +11,18 @@
         </div>
 
         <img v-else-if="block.type === 'image'" :src="block.src" :alt="block.alt || title" draggable="false"
-          :class="[block.size || 'full', 'clickable']" @click="open(block.full || block.src, block.alt || title)" />
+          :class="[block.size || 'full', 'clickable']" role="button" tabindex="0"
+          :aria-label="block.alt || title" @click="open(block.full || block.src, block.alt || title)"
+          @keydown.enter.space.prevent="open(block.full || block.src, block.alt || title)" />
 
         <div v-else-if="block.type === 'gallery'" class="gallery">
           <div v-for="(group, gIndex) in getGalleryGroups(block)" :key="gIndex" class="gallery-group"
             :class="{ 'gallery-group--featured': group.featured }">
             <div class="gallery-images">
               <img v-for="(img, iIndex) in group.images" :key="iIndex" :src="img.src" :alt="img.alt || title"
-                draggable="false" class="clickable" @click="open(toFullImages(group.images), iIndex)" />
+                draggable="false" class="clickable" role="button" tabindex="0" :aria-label="img.alt || title"
+                @click="open(toFullImages(group.images), iIndex)"
+                @keydown.enter.space.prevent="open(toFullImages(group.images), iIndex)" />
             </div>
             <p class="paragraph caption" v-if="group.caption">{{ group.caption }}</p>
           </div>
@@ -26,15 +30,17 @@
 
         <div v-else-if="block.type === 'row'" class="row-gallery">
           <div class="row-item" v-for="(img, iIndex) in block.images" :key="iIndex">
-            <img :src="img.src" :alt="img.alt || title" class="clickable" draggable="false"
-              @click="open(toFullImages(block.images), iIndex)" />
+            <img :src="img.src" :alt="img.alt || title" class="clickable" draggable="false" role="button"
+              tabindex="0" :aria-label="img.alt || title" @click="open(toFullImages(block.images), iIndex)"
+              @keydown.enter.space.prevent="open(toFullImages(block.images), iIndex)" />
           </div>
         </div>
 
         <div v-else-if="block.type === 'bento'" class="bento-grid">
           <div v-for="(img, imgIdx) in block.images" :key="img.src" :class="['bento-item', `bento-item--${imgIdx}`]">
-            <img :src="img.src" :alt="img.alt || title" class="clickable" draggable="false"
-              @click="open(toFullImages(block.images), imgIdx)" />
+            <img :src="img.src" :alt="img.alt || title" class="clickable" draggable="false" role="button"
+              tabindex="0" :aria-label="img.alt || title" @click="open(toFullImages(block.images), imgIdx)"
+              @keydown.enter.space.prevent="open(toFullImages(block.images), imgIdx)" />
           </div>
         </div>
       </template>

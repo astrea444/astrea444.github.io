@@ -80,6 +80,90 @@ $breakpoints: (
   }
 }
 
+@mixin accordion($head-font-size: $fs-lg, $head-font-weight: 500, $head-padding: $s-5 $s-3) {
+  display: flex;
+  flex-direction: column;
+
+  .acc-item {
+    border-top: $border-w solid $c-fg;
+
+    &:last-child {
+      border-bottom: $border-w solid $c-fg;
+    }
+
+    &.open {
+      .acc-icon::after {
+        transform: translateY(-50%) rotate(0deg);
+      }
+
+      .acc-panel {
+        grid-template-rows: 1fr;
+        visibility: visible;
+        transition: grid-template-rows 0.5s $ease, visibility 0s;
+      }
+    }
+  }
+
+  .acc-head {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $s-4;
+    padding: $head-padding;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    color: $c-fg;
+    font: inherit;
+    font-size: $head-font-size;
+    font-weight: $head-font-weight;
+    text-align: left;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid $c-accent;
+      outline-offset: 2px;
+    }
+  }
+
+  .acc-icon {
+    position: relative;
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: currentColor;
+      transform: translateY(-50%);
+      transition: transform 0.3s $ease;
+    }
+
+    &::after {
+      transform: translateY(-50%) rotate(90deg);
+    }
+  }
+
+  .acc-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    visibility: hidden;
+    transition: grid-template-rows 0.5s $ease, visibility 0s linear 0.5s;
+  }
+
+  .acc-inner {
+    overflow: hidden;
+    min-height: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.001ms !important;

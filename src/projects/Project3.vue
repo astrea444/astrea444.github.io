@@ -47,8 +47,8 @@
         <div class="showcase" v-reveal>
             <div class="showcase-container">
                 <img v-for="(img, i) in showcaseImages" :key="img.src" :src="img.src" :alt="img.alt" class="clickable"
-                    loading="lazy" draggable="false"
-                    @click="open(showcaseImages, i)" />
+                    loading="lazy" draggable="false" role="button" tabindex="0" :aria-label="img.alt"
+                    @click="open(showcaseImages, i)" @keydown.enter.space.prevent="open(showcaseImages, i)" />
             </div>
         </div>
         <NextProject :current-id="3" />

@@ -1,7 +1,8 @@
 <template>
     <Teleport to="body">
         <Transition name="lightbox">
-            <div v-if="state.isOpen" class="lightbox" @click.self="handleClose" @wheel.prevent.stop="onWheel">
+            <div v-if="state.isOpen" ref="lightboxRef" class="lightbox" role="dialog" aria-modal="true"
+                :aria-label="state.alt || t('ui.imageViewer')" @click.self="handleClose" @wheel.prevent.stop="onWheel">
                 <div class="toolbar">
                     <div class="zoom">
                         <button class="btn" @click="zoomOut" :disabled="scale <= MIN_SCALE" :aria-label="t('ui.zoomOut')">
@@ -12,12 +13,14 @@
                             <Icon icon="lucide:plus" height="18" width="18" />
                         </button>
                     </div>
-                    <button class="btn btn--close" @click="handleClose" :aria-label="t('ui.close')">
+                    <button ref="closeButtonRef" class="btn btn--close" type="button" @click="handleClose"
+                        :aria-label="t('ui.close')">
                         <Icon icon="lucide:x" height="18" width="18" />
                     </button>
                 </div>
 
-                <button v-if="state.images.length > 1" class="nav-btn prev" @click.stop="prev" :aria-label="t('ui.previous')">
+                <button v-if="state.images.length > 1" class="nav-btn prev" type="button" @click.stop="prev"
+                    :aria-label="t('ui.previous')">
                     <Icon icon="lucide:chevron-left" />
                 </button>
 
@@ -28,7 +31,8 @@
                         draggable="false" @pointerup.stop="onImagePointerUp" />
                 </div>
 
-                <button v-if="state.images.length > 1" class="nav-btn next" @click.stop="next" :aria-label="t('ui.next')">
+                <button v-if="state.images.length > 1" class="nav-btn next" type="button" @click.stop="next"
+                    :aria-label="t('ui.next')">
                     <Icon icon="lucide:chevron-right" />
                 </button>
             </div>
@@ -37,7 +41,7 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted, onBeforeUnmount, computed } from 'vue'
+import { ref, watch, nextTick, onMounted, onBeforeUnmount, computed } from 'vue'
 import { useLightbox } from '../composables/useLightbox'
 import { Icon } from '@iconify/vue'
 import { useI18n } from '../composables/useI18n'
@@ -55,6 +59,13 @@ const startTranslate = ref({ x: 0, y: 0 })
 
 const stageRef = ref(null)
 const imageRef = ref(null)
+const lightboxRef = ref(null)
+const closeButtonRef = ref(null)
+
+let previouslyFocusedElement = null
+let previousBodyOverflow = ''
+let appRoot = null
+let appWasInert = false
 
 const MIN_SCALE = 1
 const MAX_SCALE = 4
@@ -69,8 +80,35 @@ function resetView() {
 watch(() => state.src, resetView)
 
 watch(() => state.isOpen, (isOpen) => {
-    if (!isOpen) resetView()
+    if (isOpen) {
+        previouslyFocusedElement = document.activeElement
+        previousBodyOverflow = document.body.style.overflow
+        appRoot = document.getElementById('app')
+        appWasInert = appRoot?.inert ?? false
+        if (appRoot) appRoot.inert = true
+        document.body.style.overflow = 'hidden'
+        nextTick(() => {
+            if (state.isOpen) closeButtonRef.value?.focus()
+        })
+        return
+    }
+
+    resetView()
+    restoreModalEffects()
 })
+
+function restoreModalEffects() {
+    document.body.style.overflow = previousBodyOverflow
+    if (appRoot) appRoot.inert = appWasInert
+
+    if (previouslyFocusedElement && previouslyFocusedElement !== document.body
+        && previouslyFocusedElement.isConnected) {
+        previouslyFocusedElement.focus()
+    }
+
+    previouslyFocusedElement = null
+    appRoot = null
+}
 
 function handleClose() {
     resetView()
@@ -183,11 +221,39 @@ function onStagePointerUp(e) {
 
 function onKeydown(e) {
     if (!state.isOpen) return
-    if (e.key === 'Escape') handleClose()
-    if (e.key === '+') zoomIn()
-    if (e.key === '-') zoomOut()
-    if (e.key === 'ArrowLeft') prev()
-    if (e.key === 'ArrowRight') next()
+    if (e.key === 'Tab') {
+        const buttons = lightboxRef.value?.querySelectorAll('button:not(:disabled)') ?? []
+        const first = buttons[0]
+        const last = buttons[buttons.length - 1]
+
+        if (!first) {
+            e.preventDefault()
+        } else if (e.shiftKey && (document.activeElement === first || !lightboxRef.value.contains(document.activeElement))) {
+            e.preventDefault()
+            last.focus()
+        } else if (!e.shiftKey && (document.activeElement === last || !lightboxRef.value.contains(document.activeElement))) {
+            e.preventDefault()
+            first.focus()
+        }
+        return
+    }
+
+    if (e.key === 'Escape') {
+        e.preventDefault()
+        handleClose()
+    } else if (e.key === '+') {
+        e.preventDefault()
+        zoomIn()
+    } else if (e.key === '-') {
+        e.preventDefault()
+        zoomOut()
+    } else if (e.key === 'ArrowLeft') {
+        e.preventDefault()
+        prev()
+    } else if (e.key === 'ArrowRight') {
+        e.preventDefault()
+        next()
+    }
 }
 
 const imageStyle = computed(() => ({
@@ -201,6 +267,7 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
     window.removeEventListener('keydown', onKeydown)
+    if (state.isOpen) restoreModalEffects()
 })
 </script>
 
@@ -280,6 +347,11 @@ onBeforeUnmount(() => {
                 cursor: not-allowed;
             }
 
+            &:focus-visible {
+                outline: 2px solid $c-accent;
+                outline-offset: 3px;
+            }
+
         }
     }
 
@@ -298,6 +370,11 @@ onBeforeUnmount(() => {
         line-height: 1;
         user-select: none;
         transition: transform .3s ease;
+
+        &:focus-visible {
+            outline: 2px solid $c-accent;
+            outline-offset: 3px;
+        }
 
         svg {
             height: 100%;

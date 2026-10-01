@@ -26,6 +26,11 @@ const router = createRouter({
       name: "home",
       component: HomeView,
     },
+    {
+      path: "/visuals",
+      name: "visuals",
+      component: () => import("@/views/VisualsView.vue"),
+    },
     ...projectRoutes,
     {
       path: "/:pathMatch(.*)*",

@@ -43,9 +43,7 @@
             <h2 class="section-title">{{ t('ui.flowTitle') }}</h2>
 
             <p class="paragraph">
-                Przepływ danych został przygotowany w oparciu o warstwową strukturę aplikacji,
-                dzięki czemu poszczególne elementy pozostają od siebie niezależne i łatwiejsze
-                w dalszym rozwijaniu.
+                {{ t('ui.flowDescription') }}
             </p>
 
             <div class="structure">

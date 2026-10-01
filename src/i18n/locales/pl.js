@@ -2,10 +2,11 @@ export default {
   ui: {
     home: 'Strona główna',
     navigation: 'Nawigacja',
-    projects: 'Projekty',
+    projects: 'Case Studies',
+    visuals: 'Eksperymenty',
     contact: 'Kontakt',
     about: 'O mnie',
-    featuredProjects: 'Wyróżnione projekty',
+    featuredProjects: 'Case Studies',
     projectsIntro: 'Wybrane realizacje z zakresu brandingu, web designu i frontend developmentu. Kliknij kartę, by zobaczyć szczegóły.',
     experience: 'Doświadczenie',
     technologies: 'Technologie',
@@ -33,6 +34,8 @@ export default {
     next: 'Następne',
     designSystem: 'Design System',
     flowTitle: 'Architektura aplikacji',
+    flowDescription: 'Przepływ danych został przygotowany w oparciu o warstwową strukturę aplikacji, dzięki czemu poszczególne elementy pozostają od siebie niezależne i łatwiejsze w dalszym rozwijaniu.',
+    imageViewer: 'Przeglądarka obrazów',
     notFoundHome: 'Strona główna',
     rightsReserved: 'Wszelkie prawa zastrzeżone.'
   },
@@ -48,12 +51,18 @@ export default {
         dates: '2025 - Teraz',
         description: 'Projektowanie interfejsów i komponentów UI, tworzenie makiet i prototypów oraz wdrażanie z zakresu frontend, webdesign projektowanie grafik cyfrowych, materiałów do druku, branding.'
       }
-    ],
+    ]
   },
   hero: {
     about: [
       'Jestem studentką informatyki, specjalizującą się w projektowaniu interfejsów użytkownika, grafice komputerowej i frontend developmencie. Najlepiej odnajduję się w projektowaniu produktów cyfrowych oraz implementacji interfejsów.',
       'Dodatkowo ciągle rozwijam swoje umiejętności, aby projektować rozwiązania, które są nie tylko atrakcyjne wizualnie, ale również dobrze przemyślane od strony technicznej.'
-    ],
+    ]
+  },
+  visuals: {
+    title: 'Eksperymenty',
+    description: 'Projekty personalne, które robię poza pracą dla klientów: własne koncepty, challenge\'e i ćwiczenia z konkretnych umiejętności. Nikt mi ich nie zlecił, więc sama ustalam brief, ograniczenia i moment, w którym uznaję projekt za skończony. Traktuję je jako miejsce do testowania pomysłów, a część z nich jest celowo niedokończona. Nowe rzeczy dopisuję na bieżąco.',
+    new: 'Nowe',
+    soon: 'Kolejne materiały wkrótce.'
   }
 }

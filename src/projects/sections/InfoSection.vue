@@ -3,8 +3,8 @@
     <div v-if="meta.length" class="top">
       <div v-for="item in meta" :key="item.label" class="row">
         <span class="label">{{ item.label }}: </span>
-        <a v-if="item.label === 'Repozytorium'" :href="item.value" target="_blank" class="value link">{{ item.value
-        }}</a>
+        <a v-if="/^https?:\/\//.test(item.value)" :href="item.value" target="_blank"
+          rel="noopener noreferrer" class="value link">{{ item.value }}</a>
         <span v-else class="value">{{ item.value }}</span>
       </div>
     </div>
@@ -24,10 +24,6 @@
 
 <script setup>
 import { computed } from 'vue'
-import { useLightbox } from '@/composables/useLightbox'
-
-const { open } = useLightbox()
-
 const props = defineProps({
   bar: { type: String, default: '' },
   title: { type: String, default: '' },
@@ -101,20 +97,25 @@ const descriptionParagraphs = computed(() => {
     margin-top: $s-12;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-
+    border-radius: $s-4;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 5 / 2;
+    max-width: unset !important;
+    height: auto;
 
     @include respond-max(mobile) {
       margin-top: $s-4;
     }
 
     img {
-      border-radius: $s-4;
       display: block;
-      object-fit: cover;
-      width: 102%;
-      max-width: unset !important;
+      width: 115%;
+      max-width: none;
       height: auto;
+      flex-shrink: 0;
     }
   }
 }
